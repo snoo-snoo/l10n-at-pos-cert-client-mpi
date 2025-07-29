@@ -5,18 +5,20 @@
             <field name="name">pos_cert_plan_selection_wizard.form</field>
             <field name="model">pos_cert_plan_selection_wizard</field>
             <field name="arch" type="xml">
-                <form string="Select POS Certification Plan">
+                <form string="Subscribe to POS Certification">
                     <sheet>
                         <group>
                             <field name="company_id" readonly="1"/>
-                            <field name="selected_plan_id" 
-                                   options="{'no_create': True, 'no_open': True}"
-                                   placeholder="Select a plan from the dropdown..."/>
+                            <div class="alert alert-info" role="alert">
+                                <strong>POS Certification Subscription</strong><br/>
+                                Click the Subscribe button below to create a POS certification subscription for this company.
+                                You will be redirected to the payment portal after subscription creation.
+                            </div>
                         </group>
                     </sheet>
                     <footer>
-                        <button name="action_select_plan" 
-                                string="Select Plan" 
+                        <button name="action_subscribe" 
+                                string="Subscribe" 
                                 type="object" 
                                 class="btn-primary"/>
                         <button string="Cancel" 

@@ -10,19 +10,11 @@ _logger = logging.getLogger(__name__)
 
 class PosCertPlanSelectionWizard(models.TransientModel):
     _name = 'pos_cert_plan_selection_wizard'
-    _description = 'POS Certification Plan Selection Wizard'
+    _description = 'POS Certification Subscription Wizard'
     
     company_id = fields.Many2one('res.company', string='Company', required=True)
-    selected_plan_id = fields.Many2one('product.template', string='Select Plan', 
-                                      domain=[('is_pos_subscription_product', '=', True), ('active', '=', True)])
     
-    @api.onchange('selected_plan_id')
-    def _onchange_selected_plan_id(self):
-        """Update display when plan is selected"""
-        if self.selected_plan_id:
-            _logger.info('Selected plan: %s (ID: %s)', self.selected_plan_id.name, self.selected_plan_id.id)
-    
-    def _subscribe(self, plan_data):
+    def _subscribe(self):
         """Call the admin module's /api/subscribe endpoint"""
         try:
             if not self.company_id.pos_cert_admin_url:
@@ -33,15 +25,16 @@ class PosCertPlanSelectionWizard(models.TransientModel):
                 _logger.warning('No API key configured for company %s', self.company_id.id)
                 return {'success': False, 'error': 'No API key configured'}
             
-            # Use admin plan ID if available, otherwise fall back to client product ID
-            admin_plan_id = self.selected_plan_id.admin_plan_id or self.selected_plan_id.id
+            # Generate webhook URL for this client instance
+            webhook_url = self._generate_webhook_url()
+            if not webhook_url:
+                return {'success': False, 'error': 'Failed to generate webhook URL'}
             
             # Prepare subscription data
             subscription_data = {
                 'company_name': self.company_id.name,
-                'product_id': admin_plan_id,  # Use admin plan ID
-                'client_url': self.company_id.pos_cert_client_url,
-                'webhook_url': self.company_id.pos_cert_webhook_url,
+                'company_id': self.company_id.id,  # Add company ID
+                'webhook_base_url': webhook_url,  # Send only the base URL
             }
             
             # Make API call to admin module
@@ -80,24 +73,31 @@ class PosCertPlanSelectionWizard(models.TransientModel):
             _logger.error('Unexpected error calling admin subscribe API: %s', str(e))
             return {'success': False, 'error': str(e)}
     
-    def action_select_plan(self):
-        """Select the chosen plan and create subscription"""
+    def _generate_webhook_url(self):
+        """Generate base URL for this client instance"""
+        try:
+            # Get the base URL for this Odoo instance
+            base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')
+            if not base_url:
+                _logger.error('No base URL configured for this Odoo instance')
+                return False
+            
+            # Return only the base URL - admin module will construct specific endpoints
+            _logger.info('Generated base URL for webhooks: %s', base_url)
+            
+            return base_url
+            
+        except Exception as e:
+            _logger.error('Error generating base URL: %s', str(e))
+            return False
+    
+    def action_subscribe(self):
+        """Subscribe to POS certification service"""
         self.ensure_one()
         
         try:
-            if not self.selected_plan_id:
-                return {
-                    'type': 'ir.actions.client',
-                    'tag': 'display_notification',
-                    'params': {
-                        'title': 'No Plan Selected',
-                        'message': 'Please select a plan before proceeding.',
-                        'type': 'warning',
-                    }
-                }
-            
             # Call admin module to create subscription
-            subscription_result = self._subscribe({})
+            subscription_result = self._subscribe()
             
             if not subscription_result.get('success'):
                 return {
@@ -110,47 +110,44 @@ class PosCertPlanSelectionWizard(models.TransientModel):
                     }
                 }
             
-            # Update company with selected plan
+            # Update company with subscription information and set status to pending
             self.company_id.write({
-                'pos_cert_selected_plan_id': self.selected_plan_id.id,
-                'pos_cert_selected_plan_name': self.selected_plan_id.name,
-                'pos_cert_selected_plan_price': self.selected_plan_id.list_price,
+                'pos_cert_status': 'pending',  # Set to pending until payment is received
             })
             
-            _logger.info('Selected plan for company %s: %s (ID: %s, Price: %s)', 
-                        self.company_id.name, self.selected_plan_id.name, 
-                        self.selected_plan_id.id, self.selected_plan_id.list_price)
+            _logger.info('Created subscription for company %s with pending status', self.company_id.name)
             
             # Get portal URL for payment
             portal_url = subscription_result.get('portal_url')
             if portal_url:
                 _logger.info('Redirecting to payment portal: %s', portal_url)
                 
-                # Return action to redirect to payment portal
+                # Close the wizard and redirect to payment portal
                 return {
                     'type': 'ir.actions.act_url',
                     'url': portal_url,
                     'target': 'new',
                 }
             else:
+                # Close the wizard and show success message
                 return {
                     'type': 'ir.actions.client',
                     'tag': 'display_notification',
                     'params': {
-                        'title': 'Plan Selected',
-                        'message': f'Successfully selected plan: {self.selected_plan_id.name}. Please contact support for payment.',
+                        'title': 'Subscription Created',
+                        'message': 'Successfully created POS certification subscription. Please contact support for payment.',
                         'type': 'success',
                     }
                 }
             
         except Exception as e:
-            _logger.error('Error selecting plan: %s', str(e))
+            _logger.error('Error creating subscription: %s', str(e))
             return {
                 'type': 'ir.actions.client',
                 'tag': 'display_notification',
                 'params': {
                     'title': 'Error',
-                    'message': f'Failed to select plan: {str(e)}',
+                    'message': f'Failed to create subscription: {str(e)}',
                     'type': 'danger',
                 }
             } 

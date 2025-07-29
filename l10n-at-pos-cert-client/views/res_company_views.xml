@@ -13,29 +13,25 @@
                             <group string="Status">
                                 <field name="pos_cert_status" readonly="1"/>
                             </group>
-                            <group string="Configuration">
-                                <field name="pos_cert_enabled"/>
-                                <button name="action_select_subscription_plan" 
-                                        string="Select Plan" 
+                            <group string="Actions">
+                                <button name="action_subscribe_to_pos_cert" 
+                                        string="Subscribe" 
                                         type="object" 
                                         class="btn-primary"
-                                        icon="fa-list"/>
+                                        icon="fa-check"
+                                        invisible="pos_cert_status in ['active', 'pending']"/>
+                                <button name="cancel_plan" 
+                                        string="Cancel Subscription" 
+                                        type="object" 
+                                        class="btn-danger"
+                                        icon="fa-times"
+                                        invisible="pos_cert_status not in ['active', 'pending']"/>
                             </group>
                         </group>
                         <group>
-                            <group string="Admin Module">
+                            <group string="Admin Module Configuration">
                                 <field name="pos_cert_admin_url"/>
                                 <field name="pos_cert_api_key"/>
-                            </group>
-                            <group string="Client Instance">
-                                <field name="pos_cert_client_url"/>
-                                <field name="pos_cert_webhook_url" readonly="1"/>
-                            </group>
-                        </group>
-                        <group>
-                            <group string="Selected Plan">
-                                <field name="pos_cert_selected_plan_name" readonly="1"/>
-                                <field name="pos_cert_selected_plan_price" readonly="1"/>
                             </group>
                         </group>
                     </page>
