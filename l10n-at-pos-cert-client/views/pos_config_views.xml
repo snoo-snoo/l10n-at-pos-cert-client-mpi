@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- POS Config Form View Extension -->
+        <record id="pos_config_form_view_pos_cert" model="ir.ui.view">
+            <field name="name">pos.config.form.pos.cert</field>
+            <field name="model">pos.config</field>
+            <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet" position="inside">
+                    <group string="POS Certification" name="pos_certification" invisible="context.get('pos_config_create_mode', False)">
+                        <group>
+                            <field name="pos_cert_status" readonly="1"/>
+                            <field name="pos_cert_registration_date" readonly="1"/>
+                        </group>
+                        <group>
+                            <button name="action_register_cash_register" 
+                                    string="Register Cash Register" 
+                                    type="object" 
+                                    class="btn-primary"
+                                    invisible="pos_cert_status == 'active'"
+                                    help="Register this cash register for POS certification"/>
+                        </group>
+                        <group string="Cash Register Information" invisible="pos_cert_status != 'active'">
+                            <field name="pos_cert_cash_register_id" readonly="1"/>
+                            <field name="pos_cert_cash_register_status" readonly="1"/>
+                            <button name="action_create_cash_register" 
+                                    string="Create Cash Register" 
+                                    type="object" 
+                                    class="btn-primary"
+                                    invisible="pos_cert_cash_register_id"
+                                    help="Create cash register in Fiskaly"/>
+                        </group>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo> 

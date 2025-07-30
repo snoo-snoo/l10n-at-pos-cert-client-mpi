@@ -23,6 +23,7 @@
         'security/ir.model.access.csv',
         'views/res_company_views.xml',
         'views/pos_cert_plan_selection_wizard_views.xml',
+        'views/pos_config_views.xml',
     ],
     'demo': [],
     'installable': True,

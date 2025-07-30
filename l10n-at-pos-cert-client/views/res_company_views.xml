@@ -29,7 +29,7 @@
                             <button name="action_subscribe_to_pos_cert" 
                                     string="Subscribe to POS Certification" 
                                     type="object" 
-                                    class="btn-secondary"
+                                    class="btn-primary"
                                     invisible="pos_cert_status != 'inactive'"/>
                             <button name="cancel_plan" 
                                     string="Cancel Plan" 
@@ -84,7 +84,7 @@
                                     string="Initialize SCU" 
                                     type="object" 
                                     class="btn-primary"
-                                    invisible="l10n_at_fiskaly_scu_status == 'INITIALIZED'"/>
+                                    invisible="l10n_at_fiskaly_scu_status == 'INITIALIZED' or l10n_at_fiskaly_scu_status == 'PENDING'"/>
                         </group>
                         <div class="alert alert-info" role="alert" invisible="pos_cert_status != 'active' or l10n_at_fiskaly_organization_status != 'pending'">
                             <strong>SCU Creation:</strong> Click "Create Signature Creation Unit" to set up your digital signature unit for Austrian fiscal compliance.
