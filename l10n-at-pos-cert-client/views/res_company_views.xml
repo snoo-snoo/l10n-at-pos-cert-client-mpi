@@ -1,39 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <!-- Company Form View - POS Certification Tab -->
-        <record id="view_company_form_inherit_pos_cert" model="ir.ui.view">
-            <field name="name">res.company.form.inherit.pos.cert</field>
+        <!-- Company Form View -->
+        <record id="res_company_form_view_pos_cert" model="ir.ui.view">
+            <field name="name">res.company.form.pos.cert</field>
             <field name="model">res.company</field>
             <field name="inherit_id" ref="base.view_company_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//notebook" position="inside">
                     <page string="POS Certification" name="pos_certification">
                         <group>
-                            <group string="Status">
-                                <field name="pos_cert_status" readonly="1"/>
-                            </group>
-                            <group string="Actions">
-                                <button name="action_subscribe_to_pos_cert" 
-                                        string="Subscribe" 
-                                        type="object" 
-                                        class="btn-primary"
-                                        icon="fa-check"
-                                        invisible="pos_cert_status in ['active', 'pending']"/>
-                                <button name="cancel_plan" 
-                                        string="Cancel Subscription" 
-                                        type="object" 
-                                        class="btn-danger"
-                                        icon="fa-times"
-                                        invisible="pos_cert_status not in ['active', 'pending']"/>
-                            </group>
-                        </group>
-                        <group>
-                            <group string="Admin Module Configuration">
+                            <group string="Configuration">
                                 <field name="pos_cert_admin_url"/>
                                 <field name="pos_cert_api_key"/>
                             </group>
+                            <group string="Status">
+                                <field name="pos_cert_status" readonly="1"/>
+                                <field name="l10n_at_fiskaly_organization_status" readonly="1"/>
+                                <field name="l10n_at_fiskaly_organization_error" invisible="not l10n_at_fiskaly_organization_error"/>
+                            </group>
                         </group>
+                        <group>
+                            <button name="create_fiskaly_organization" 
+                                    string="Create Fiskaly Organization" 
+                                    type="object" 
+                                    class="btn-primary"
+                                    invisible="pos_cert_status != 'active' or l10n_at_fiskaly_organization_status == 'created' or l10n_at_fiskaly_organization_status == 'creating'"/>
+                            <button name="action_subscribe_to_pos_cert" 
+                                    string="Subscribe to POS Certification" 
+                                    type="object" 
+                                    class="btn-secondary"
+                                    invisible="pos_cert_status != 'inactive'"/>
+                            <button name="cancel_plan" 
+                                    string="Cancel Plan" 
+                                    type="object" 
+                                    class="btn-danger"
+                                    invisible="pos_cert_status == 'inactive'"/>
+                        </group>
+                        <div class="alert alert-info" role="alert" invisible="pos_cert_status != 'active'">
+                            <strong>Note:</strong> Click "Create Fiskaly Organization" to set up your Austrian fiscal compliance.
+                        </div>
                     </page>
                 </xpath>
             </field>
