@@ -41,6 +41,33 @@ class ResCompany(models.Model):
     ], string="Fiskaly Organization Status", default='not_created')
     l10n_at_fiskaly_organization_error = fields.Text(string="Fiskaly Organization Error", help="Error message if organization creation failed")
     
+    # Fiskaly FON Authentication fields
+    l10n_at_fiskaly_fon_participant_id = fields.Char(
+        string='FON Participant ID',
+        help='FON Participant ID (8-12 characters, alphanumeric)'
+    )
+    l10n_at_fiskaly_fon_user_id = fields.Char(
+        string='FON User ID',
+        help='FON User ID (5-12 characters)'
+    )
+    l10n_at_fiskaly_fon_user_pin = fields.Char(
+        string='FON User PIN',
+        help='FON User PIN (5-128 characters)',
+        password=True
+    )
+    l10n_at_fiskaly_fon_authentication_status = fields.Selection([
+        ('unauthenticated', 'Unauthenticated'),
+        ('authenticated', 'Authenticated')
+    ], string='FON Authentication Status', default='unauthenticated')
+    l10n_at_fiskaly_fon_authentication_date = fields.Datetime(
+        string='FON Authentication Date',
+        help='Date when FON was last authenticated'
+    )
+    l10n_at_fiskaly_fon_authentication_error = fields.Text(
+        string='FON Authentication Error',
+        help='Error message if FON authentication failed'
+    )
+    
     def create_fiskaly_organization(self):
         """Create Fiskaly organization via admin endpoint"""
         self.ensure_one()
@@ -135,6 +162,109 @@ class ResCompany(models.Model):
                 'params': {
                     'title': 'Error',
                     'message': f'Error creating Fiskaly organization: {str(e)}',
+                    'type': 'danger',
+                }
+            }
+    
+    def action_authenticate_fon(self):
+        """Authenticate FON via admin endpoint"""
+        self.ensure_one()
+        
+        try:
+            if self.pos_cert_status != 'active':
+                raise UserError(_("Subscription must be active to authenticate FON"))
+            
+            if not self.pos_cert_admin_url or not self.pos_cert_api_key:
+                raise UserError(_("Admin URL and API key must be configured"))
+            
+            # Validate that FON credentials are provided
+            if not self.l10n_at_fiskaly_fon_participant_id:
+                raise UserError(_("FON Participant ID is required"))
+            if not self.l10n_at_fiskaly_fon_user_id:
+                raise UserError(_("FON User ID is required"))
+            if not self.l10n_at_fiskaly_fon_user_pin:
+                raise UserError(_("FON User PIN is required"))
+            
+            # Update status to authenticating
+            self.write({
+                'l10n_at_fiskaly_fon_authentication_status': 'unauthenticated',
+                'l10n_at_fiskaly_fon_authentication_error': False,
+            })
+            
+            # Prepare FON credentials
+            fon_credentials = {
+                'fon_participant_id': self.l10n_at_fiskaly_fon_participant_id,
+                'fon_user_id': self.l10n_at_fiskaly_fon_user_id,
+                'fon_user_pin': self.l10n_at_fiskaly_fon_user_pin,
+            }
+            
+            # Call admin endpoint
+            url = f"{self.pos_cert_admin_url}/api/pos_cert/authenticate_fon"
+            payload = {
+                'fon_credentials': fon_credentials,
+            }
+            
+            _logger.info('Calling admin endpoint to authenticate FON: %s', url)
+            
+            headers = {
+                'Content-Type': 'application/json',
+                'Authorization': f'Bearer {self.pos_cert_api_key}'
+            }
+            
+            response = requests.post(
+                url,
+                json=payload,
+                headers=headers,
+                timeout=60
+            )
+            
+            result = response.json()
+            
+            if result.get('success'):
+                self.write({
+                    'l10n_at_fiskaly_fon_authentication_status': 'authenticated',
+                    'l10n_at_fiskaly_fon_authentication_date': fields.Datetime.now(),
+                    'l10n_at_fiskaly_fon_authentication_error': False,
+                })
+                
+                return {
+                    'type': 'ir.actions.client',
+                    'tag': 'display_notification',
+                    'params': {
+                        'title': 'Success',
+                        'message': 'FON authenticated successfully',
+                        'type': 'success',
+                    }
+                }
+            else:
+                self.write({
+                    'l10n_at_fiskaly_fon_authentication_status': 'unauthenticated',
+                    'l10n_at_fiskaly_fon_authentication_error': result.get('error', 'Unknown error'),
+                })
+                
+                return {
+                    'type': 'ir.actions.client',
+                    'tag': 'display_notification',
+                    'params': {
+                        'title': 'Error',
+                        'message': f'Failed to authenticate FON: {result.get("error")}',
+                        'type': 'danger',
+                    }
+                }
+                
+        except Exception as e:
+            _logger.error('Error authenticating FON: %s', str(e))
+            self.write({
+                'l10n_at_fiskaly_fon_authentication_status': 'unauthenticated',
+                'l10n_at_fiskaly_fon_authentication_error': str(e),
+            })
+            
+            return {
+                'type': 'ir.actions.client',
+                'tag': 'display_notification',
+                'params': {
+                    'title': 'Error',
+                    'message': f'Error authenticating FON: {str(e)}',
                     'type': 'danger',
                 }
             }
