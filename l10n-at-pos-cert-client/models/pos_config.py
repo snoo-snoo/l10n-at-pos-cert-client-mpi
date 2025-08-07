@@ -32,7 +32,7 @@ class PosConfig(models.Model):
     # Cash Register fields
     pos_cert_cash_register_id = fields.Char(
         string='Cash Register ID',
-        help='Fiskaly cash register ID'
+        help='Cash register ID'
     )
     
     pos_cert_cash_register_status = fields.Selection([
@@ -41,7 +41,7 @@ class PosConfig(models.Model):
         ('DECOMMISSIONED', 'Decommissioned'),
         ('DEFECTIVE', 'Defective'),
         ('OUTAGE', 'Outage')
-    ], string='Cash Register Status', default='CREATED', help='Status of the cash register in Fiskaly')
+    ], string='Cash Register Status', default='CREATED', help='Status of the cash register')
     
     def action_register_cash_register(self):
         """Register the cash register with the admin module"""

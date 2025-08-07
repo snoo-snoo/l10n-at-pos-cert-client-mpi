@@ -29,7 +29,7 @@
                                     type="object" 
                                     class="btn-primary"
                                     invisible="pos_cert_cash_register_id"
-                                    help="Create cash register in Fiskaly"/>
+                                    help="Create cash register"/>
                         </group>
                     </group>
                 </xpath>

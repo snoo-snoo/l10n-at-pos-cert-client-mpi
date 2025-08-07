@@ -32,71 +32,71 @@ class ResCompany(models.Model):
         ('expired', 'Expired')
     ], string='Subscription Status', default='inactive')
     
-    # Fiskaly status (received from admin via webhook)
-    l10n_at_fiskaly_organization_status = fields.Selection([
+    # Organization status (received from admin via webhook)
+    l10n_at_organization_status = fields.Selection([
         ('not_created', 'Not Created'),
         ('creating', 'Creating'),
         ('created', 'Created'),
         ('failed', 'Failed')
-    ], string="Fiskaly Organization Status", default='not_created')
-    l10n_at_fiskaly_organization_error = fields.Text(string="Fiskaly Organization Error", help="Error message if organization creation failed")
+    ], string="Organization Status", default='not_created')
+    l10n_at_organization_error = fields.Text(string="Organization Error", help="Error message if organization creation failed")
     
-    # Fiskaly FON Authentication fields
-    l10n_at_fiskaly_fon_participant_id = fields.Char(
+    # FON Authentication fields
+    l10n_at_fon_participant_id = fields.Char(
         string='FON Participant ID',
         help='FON Participant ID (8-12 characters, alphanumeric)'
     )
-    l10n_at_fiskaly_fon_user_id = fields.Char(
+    l10n_at_fon_user_id = fields.Char(
         string='FON User ID',
         help='FON User ID (5-12 characters)'
     )
-    l10n_at_fiskaly_fon_user_pin = fields.Char(
+    l10n_at_fon_user_pin = fields.Char(
         string='FON User PIN',
         help='FON User PIN (5-128 characters)',
         password=True
     )
-    l10n_at_fiskaly_fon_authentication_status = fields.Selection([
+    l10n_at_fon_authentication_status = fields.Selection([
         ('unauthenticated', 'Unauthenticated'),
         ('authenticated', 'Authenticated')
     ], string='FON Authentication Status', default='unauthenticated')
-    l10n_at_fiskaly_fon_authentication_date = fields.Datetime(
+    l10n_at_fon_authentication_date = fields.Datetime(
         string='FON Authentication Date',
         help='Date when FON was last authenticated'
     )
-    l10n_at_fiskaly_fon_authentication_error = fields.Text(
+    l10n_at_fon_authentication_error = fields.Text(
         string='FON Authentication Error',
         help='Error message if FON authentication failed'
     )
     
-    # Fiskaly SCU (Signature Creation Unit) fields
-    l10n_at_fiskaly_scu_id = fields.Char(string="Fiskaly SCU ID", help="Signature Creation Unit ID (UUID4)")
-    l10n_at_fiskaly_scu_status = fields.Selection([
+    # SCU (Signature Creation Unit) fields
+    l10n_at_scu_id = fields.Char(string="SCU ID", help="Signature Creation Unit ID (UUID4)")
+    l10n_at_scu_status = fields.Selection([
         ('PENDING', 'Pending'),
         ('CREATED', 'Created'),
         ('INITIALIZED', 'Initialized'),
         ('DECOMMISSIONED', 'Decommissioned'),
         ('OUTAGE', 'Outage'),
         ('DEFECTIVE', 'Defective')
-    ], string="Fiskaly SCU Status", default='PENDING')
-    l10n_at_fiskaly_scu_error = fields.Text(string="Fiskaly SCU Error", help="Error message if SCU creation failed")
-    l10n_at_fiskaly_scu_initialization_error = fields.Text(string="Fiskaly SCU Initialization Error", help="Error message if SCU initialization failed")
+    ], string="SCU Status", default='PENDING')
+    l10n_at_scu_error = fields.Text(string="SCU Error", help="Error message if SCU creation failed")
+    l10n_at_scu_initialization_error = fields.Text(string="SCU Initialization Error", help="Error message if SCU initialization failed")
     
-    def create_fiskaly_organization(self):
-        """Create Fiskaly organization via admin endpoint"""
+    def create_organization(self):
+        """Create organization via admin endpoint"""
         self.ensure_one()
         
         try:
             if self.pos_cert_status != 'active':
-                raise UserError(_("Subscription must be active to create Fiskaly organization"))
+                raise UserError(_("Subscription must be active to create organization"))
             
             if not self.pos_cert_admin_url or not self.pos_cert_api_key:
                 raise UserError(_("Admin URL and API key must be configured"))
             
-            if self.l10n_at_fiskaly_organization_status == 'created':
-                raise UserError(_("Fiskaly organization already created"))
+            if self.l10n_at_organization_status == 'created':
+                raise UserError(_("Organization already created"))
             
             # Update status to creating
-            self.write({'l10n_at_fiskaly_organization_status': 'creating'})
+            self.write({'l10n_at_organization_status': 'creating'})
             
             # Prepare company data
             company_data = {
@@ -115,7 +115,7 @@ class ResCompany(models.Model):
                 'company_data': company_data,
             }
             
-            _logger.info('Calling admin endpoint to create Fiskaly organization: %s', url)
+            _logger.info('Calling admin endpoint to create organization: %s', url)
             
             headers = {
                 'Content-Type': 'application/json',
@@ -133,8 +133,8 @@ class ResCompany(models.Model):
             
             if result.get('success'):
                 self.write({
-                    'l10n_at_fiskaly_organization_status': 'created',
-                    'l10n_at_fiskaly_organization_error': False,
+                    'l10n_at_organization_status': 'created',
+                    'l10n_at_organization_error': False,
                 })
                 
                 return {
@@ -142,14 +142,14 @@ class ResCompany(models.Model):
                     'tag': 'display_notification',
                     'params': {
                         'title': 'Success',
-                        'message': f'Fiskaly organization created successfully: {result.get("organization_id")}',
+                        'message': f'Organization created successfully: {result.get("organization_id")}',
                         'type': 'success',
                     }
                 }
             else:
                 self.write({
-                    'l10n_at_fiskaly_organization_status': 'failed',
-                    'l10n_at_fiskaly_organization_error': result.get('error', 'Unknown error'),
+                    'l10n_at_organization_status': 'failed',
+                    'l10n_at_organization_error': result.get('error', 'Unknown error'),
                 })
                 
                 return {
@@ -157,16 +157,16 @@ class ResCompany(models.Model):
                     'tag': 'display_notification',
                     'params': {
                         'title': 'Error',
-                        'message': f'Failed to create Fiskaly organization: {result.get("error")}',
+                        'message': f'Failed to create organization: {result.get("error")}',
                         'type': 'danger',
                     }
                 }
                 
         except Exception as e:
-            _logger.error('Error creating Fiskaly organization: %s', str(e))
+            _logger.error('Error creating organization: %s', str(e))
             self.write({
-                'l10n_at_fiskaly_organization_status': 'failed',
-                'l10n_at_fiskaly_organization_error': str(e),
+                'l10n_at_organization_status': 'failed',
+                'l10n_at_organization_error': str(e),
             })
             
             return {
@@ -174,7 +174,7 @@ class ResCompany(models.Model):
                 'tag': 'display_notification',
                 'params': {
                     'title': 'Error',
-                    'message': f'Error creating Fiskaly organization: {str(e)}',
+                    'message': f'Error creating organization: {str(e)}',
                     'type': 'danger',
                 }
             }
@@ -190,13 +190,13 @@ class ResCompany(models.Model):
             if not self.pos_cert_admin_url or not self.pos_cert_api_key:
                 raise UserError(_("Admin URL and API key must be configured"))
             
-            if self.l10n_at_fiskaly_organization_status != 'created':
-                raise UserError(_("Fiskaly organization must be created before creating SCU"))
+            if self.l10n_at_organization_status != 'created':
+                raise UserError(_("Organization must be created before creating SCU"))
             
-            # if self.l10n_at_fiskaly_fon_authentication_status != 'authenticated':
+            # if self.l10n_at_fon_authentication_status != 'authenticated':
             #     raise UserError(_("FON must be authenticated before creating SCU"))
             
-            if self.l10n_at_fiskaly_scu_id:
+            if self.l10n_at_scu_id:
                 raise UserError(_("SCU already exists for this company"))
             
             if not self.vat:
@@ -204,8 +204,8 @@ class ResCompany(models.Model):
             
             # Update status to creating
             self.write({
-                'l10n_at_fiskaly_scu_status': 'PENDING',
-                'l10n_at_fiskaly_scu_error': False,
+                'l10n_at_scu_status': 'PENDING',
+                'l10n_at_scu_error': False,
             })
             
             # Call admin endpoint
@@ -232,9 +232,9 @@ class ResCompany(models.Model):
             
             if result.get('success'):
                 self.write({
-                    'l10n_at_fiskaly_scu_id': result.get('scu_id'),
-                    'l10n_at_fiskaly_scu_status': result.get('scu_status', 'PENDING'),
-                    'l10n_at_fiskaly_scu_error': False,
+                    'l10n_at_scu_id': result.get('scu_id'),
+                    'l10n_at_scu_status': result.get('scu_status', 'PENDING'),
+                    'l10n_at_scu_error': False,
                 })
                 
                 return {
@@ -248,8 +248,8 @@ class ResCompany(models.Model):
                 }
             else:
                 self.write({
-                    'l10n_at_fiskaly_scu_status': 'PENDING',
-                    'l10n_at_fiskaly_scu_error': result.get('error', 'Unknown error'),
+                    'l10n_at_scu_status': 'PENDING',
+                    'l10n_at_scu_error': result.get('error', 'Unknown error'),
                 })
                 
                 return {
@@ -265,8 +265,8 @@ class ResCompany(models.Model):
         except Exception as e:
             _logger.error('Error creating SCU: %s', str(e))
             self.write({
-                'l10n_at_fiskaly_scu_status': 'PENDING',
-                'l10n_at_fiskaly_scu_error': str(e),
+                'l10n_at_scu_status': 'PENDING',
+                'l10n_at_scu_error': str(e),
             })
             
             return {
@@ -290,20 +290,20 @@ class ResCompany(models.Model):
             if not self.pos_cert_admin_url or not self.pos_cert_api_key:
                 raise UserError(_("Admin URL and API key must be configured"))
             
-            if self.l10n_at_fiskaly_organization_status != 'created':
-                raise UserError(_("Fiskaly organization must be created before initializing SCU"))
+            if self.l10n_at_organization_status != 'created':
+                raise UserError(_("Organization must be created before initializing SCU"))
             
-            if not self.l10n_at_fiskaly_scu_id:
+            if not self.l10n_at_scu_id:
                 raise UserError(_("SCU must be created before initializing"))
             
-            if self.l10n_at_fiskaly_scu_status == 'INITIALIZED':
+            if self.l10n_at_scu_status == 'INITIALIZED':
                 raise UserError(_("SCU is already initialized"))
             
-            if self.l10n_at_fiskaly_scu_status in ['DECOMMISSIONED', 'OUTAGE', 'DEFECTIVE']:
-                raise UserError(_(f"Cannot initialize SCU in current state: {self.l10n_at_fiskaly_scu_status}"))
+            if self.l10n_at_scu_status in ['DECOMMISSIONED', 'OUTAGE', 'DEFECTIVE']:
+                raise UserError(_(f"Cannot initialize SCU in current state: {self.l10n_at_scu_status}"))
             
             # Check FON authentication (show error if not authenticated)
-            if self.l10n_at_fiskaly_fon_authentication_status != 'authenticated':
+            if self.l10n_at_fon_authentication_status != 'authenticated':
                 return {
                     'type': 'ir.actions.client',
                     'tag': 'display_notification',
@@ -316,7 +316,7 @@ class ResCompany(models.Model):
             
             # Update initialization error field
             self.write({
-                'l10n_at_fiskaly_scu_initialization_error': False,
+                'l10n_at_scu_initialization_error': False,
             })
             
             # Call admin endpoint
@@ -340,8 +340,8 @@ class ResCompany(models.Model):
             
             if result.get('success'):
                 self.write({
-                    'l10n_at_fiskaly_scu_status': result.get('scu_status', 'PENDING'),
-                    'l10n_at_fiskaly_scu_initialization_error': False,
+                    'l10n_at_scu_status': result.get('scu_status', 'PENDING'),
+                    'l10n_at_scu_initialization_error': False,
                 })
                 
                 return {
@@ -355,7 +355,7 @@ class ResCompany(models.Model):
                 }
             else:
                 self.write({
-                    'l10n_at_fiskaly_scu_initialization_error': result.get('error', 'Unknown error'),
+                    'l10n_at_scu_initialization_error': result.get('error', 'Unknown error'),
                 })
                 
                 return {
@@ -371,7 +371,7 @@ class ResCompany(models.Model):
         except Exception as e:
             _logger.error('Error initializing SCU: %s', str(e))
             self.write({
-                'l10n_at_fiskaly_scu_initialization_error': str(e),
+                'l10n_at_scu_initialization_error': str(e),
             })
             
             return {
@@ -396,24 +396,24 @@ class ResCompany(models.Model):
                 raise UserError(_("Admin URL and API key must be configured"))
             
             # Validate that FON credentials are provided
-            if not self.l10n_at_fiskaly_fon_participant_id:
+            if not self.l10n_at_fon_participant_id:
                 raise UserError(_("FON Participant ID is required"))
-            if not self.l10n_at_fiskaly_fon_user_id:
+            if not self.l10n_at_fon_user_id:
                 raise UserError(_("FON User ID is required"))
-            if not self.l10n_at_fiskaly_fon_user_pin:
+            if not self.l10n_at_fon_user_pin:
                 raise UserError(_("FON User PIN is required"))
             
             # Update status to authenticating
             self.write({
-                'l10n_at_fiskaly_fon_authentication_status': 'unauthenticated',
-                'l10n_at_fiskaly_fon_authentication_error': False,
+                'l10n_at_fon_authentication_status': 'unauthenticated',
+                'l10n_at_fon_authentication_error': False,
             })
             
             # Prepare FON credentials
             fon_credentials = {
-                'fon_participant_id': self.l10n_at_fiskaly_fon_participant_id,
-                'fon_user_id': self.l10n_at_fiskaly_fon_user_id,
-                'fon_user_pin': self.l10n_at_fiskaly_fon_user_pin,
+                'fon_participant_id': self.l10n_at_fon_participant_id,
+                'fon_user_id': self.l10n_at_fon_user_id,
+                'fon_user_pin': self.l10n_at_fon_user_pin,
             }
             
             # Call admin endpoint
@@ -440,9 +440,9 @@ class ResCompany(models.Model):
             
             if result.get('success'):
                 self.write({
-                    'l10n_at_fiskaly_fon_authentication_status': 'authenticated',
-                    'l10n_at_fiskaly_fon_authentication_date': fields.Datetime.now(),
-                    'l10n_at_fiskaly_fon_authentication_error': False,
+                    'l10n_at_fon_authentication_status': 'authenticated',
+                    'l10n_at_fon_authentication_date': fields.Datetime.now(),
+                    'l10n_at_fon_authentication_error': False,
                 })
                 
                 return {
@@ -456,8 +456,8 @@ class ResCompany(models.Model):
                 }
             else:
                 self.write({
-                    'l10n_at_fiskaly_fon_authentication_status': 'unauthenticated',
-                    'l10n_at_fiskaly_fon_authentication_error': result.get('error', 'Unknown error'),
+                    'l10n_at_fon_authentication_status': 'unauthenticated',
+                    'l10n_at_fon_authentication_error': result.get('error', 'Unknown error'),
                 })
                 
                 return {
@@ -473,8 +473,8 @@ class ResCompany(models.Model):
         except Exception as e:
             _logger.error('Error authenticating FON: %s', str(e))
             self.write({
-                'l10n_at_fiskaly_fon_authentication_status': 'unauthenticated',
-                'l10n_at_fiskaly_fon_authentication_error': str(e),
+                'l10n_at_fon_authentication_status': 'unauthenticated',
+                'l10n_at_fon_authentication_error': str(e),
             })
             
             return {
@@ -497,7 +497,7 @@ class ResCompany(models.Model):
             # Clear subscription and plan fields
             self.write({
                 'pos_cert_status': 'inactive',
-                'l10n_at_fiskaly_organization_status': 'not_created',
+                'l10n_at_organization_status': 'not_created',
             })
             
             _logger.info('Successfully cancelled plan for company %s', self.name)
