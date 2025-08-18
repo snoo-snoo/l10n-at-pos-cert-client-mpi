@@ -171,6 +171,67 @@ class PosConfig(models.Model):
                 }
             }
     
+    def action_initialize_cash_register(self):
+        """Initialize cash register via admin module"""
+        self.ensure_one()
+        
+        try:
+            _logger.info('Initializing cash register for POS config: %s (ID: %s)', self.name, self.id)
+            
+            # Get company and validate configuration
+            company = self.company_id
+            if not company.pos_cert_admin_url:
+                raise UserError(_("Admin URL not configured. Please configure the admin URL in company settings."))
+            
+            if not company.pos_cert_api_key:
+                raise UserError(_("API key not configured. Please configure the API key in company settings."))
+            
+            # Call admin module to initialize cash register
+            result = self._call_admin_initialize_cash_register_api()
+            
+            if result.get('success'):
+                # Update the record with cash register status
+                self.write({
+                    'pos_cert_cash_register_status': result.get('cash_register_status', 'INITIALIZED'),
+                })
+                
+                _logger.info('Successfully initialized cash register: %s', self.pos_cert_cash_register_id)
+                
+                return {
+                    'type': 'ir.actions.client',
+                    'tag': 'display_notification',
+                    'params': {
+                        'title': 'Cash Register Initialized',
+                        'message': 'Cash register initialized successfully',
+                        'type': 'success',
+                    }
+                }
+            else:
+                error_msg = result.get('error', 'Unknown error occurred')
+                _logger.error('Failed to initialize cash register: %s', error_msg)
+                
+                return {
+                    'type': 'ir.actions.client',
+                    'tag': 'display_notification',
+                    'params': {
+                        'title': 'Initialization Failed',
+                        'message': f'Failed to initialize cash register: {error_msg}',
+                        'type': 'danger',
+                    }
+                }
+                
+        except Exception as e:
+            _logger.error('Error initializing cash register: %s', str(e))
+            return {
+                'type': 'ir.actions.client',
+                'tag': 'display_notification',
+                'params': {
+                    'title': 'Error',
+                    'message': f'Error initializing cash register: {str(e)}',
+                    'type': 'danger',
+                }
+            }
+    
     def _call_admin_register_api(self):
         """Call the admin module's register cash register endpoint"""
         try:
@@ -267,4 +328,54 @@ class PosConfig(models.Model):
                 
         except Exception as e:
             _logger.error('Unexpected error calling admin create cash register API: %s', str(e))
+            return {'success': False, 'error': str(e)}
+    
+    def _call_admin_initialize_cash_register_api(self):
+        """Call the admin module's initialize cash register endpoint"""
+        try:
+            company = self.company_id
+            
+            # Prepare cash register initialization data
+            initialization_data = {
+                'pos_config_id': self.id,
+                'pos_config_name': self.name,
+                'company_name': company.name,
+                'company_id': company.id,
+                'cash_register_id': self.pos_cert_cash_register_id,
+            }
+            
+            # Make API call to admin module
+            api_url = f"{company.pos_cert_admin_url}/api/pos_cert/initialize_cash_register"
+            headers = {
+                'Authorization': f'Bearer {company.pos_cert_api_key}',
+                'Content-Type': 'application/json'
+            }
+            
+            _logger.info('Calling admin initialize cash register API: %s', api_url)
+            _logger.info('Initialization data: %s', initialization_data)
+            
+            response = requests.post(
+                api_url, 
+                json=initialization_data, 
+                headers=headers, 
+                timeout=30
+            )
+            
+            _logger.info('Admin API response status: %s', response.status_code)
+            _logger.info('Admin API response: %s', response.text)
+            
+            if response.status_code == 200:
+                data = response.json()
+                if data.get('success'):
+                    _logger.info('Successfully initialized cash register: %s', self.pos_cert_cash_register_id)
+                    return data
+                else:
+                    _logger.error('Failed to initialize cash register: %s', data.get('error'))
+                    return {'success': False, 'error': data.get('error')}
+            else:
+                _logger.error('HTTP error %s: %s', response.status_code, response.text)
+                return {'success': False, 'error': f'HTTP {response.status_code}'}
+                
+        except Exception as e:
+            _logger.error('Unexpected error calling admin initialize cash register API: %s', str(e))
             return {'success': False, 'error': str(e)} 
