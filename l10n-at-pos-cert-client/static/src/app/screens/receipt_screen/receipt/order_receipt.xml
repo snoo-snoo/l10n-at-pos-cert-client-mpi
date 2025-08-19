@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <!-- Extend the existing OrderReceipt template to include RKSV data -->
+    <t t-name="l10n_at_pos_cert_client.OrderReceipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[@class='pos-receipt-order-data'][1]" position="after">
+            <!-- RKSV Compliance Section -->
+            <t t-if="props.data.rksv_cash_register_serial or props.data.rksv_receipt_number or props.data.rksv_is_offline">
+                <div class="rksv-compliance-section" style="border-top: 1px solid #ccc; margin-top: 15px; padding-top: 15px;">
+                    <div class="text-center" style="font-weight: bold; margin-bottom: 10px;">
+                        --- RKSV ---
+                    </div>
+                    
+                    <!-- Offline Warning (prominent display for offline receipts) -->
+                    <t t-if="props.data.rksv_is_offline">
+                        <div class="rksv-offline-warning text-center" style="color: #6c757d; font-size: 1.1em; font-weight: bold; margin: 15px 0; padding: 10px; border: 1px solid #dee2e6; background-color: #f8f9fa;">
+                            <i class="fa fa-exclamation-triangle me-2" role="img" aria-label="Warning" title="Warning"/>
+                            SICHERHEITSEINRICHTUNG AUSGEFALLEN
+                        </div>
+                    </t>
+                    
+                    <!-- Till Identification Number (only for online receipts) -->
+                    <t t-if="props.data.rksv_cash_register_serial and !props.data.rksv_is_offline">
+                        <div class="rksv-field d-flex justify-content-between">
+                            <span>Kassen-ID:</span>
+                            <span t-esc="props.data.rksv_cash_register_serial" />
+                        </div>
+                    </t>
+                    
+                    <!-- Date and Time of Receipt -->
+                    <t t-if="props.data.rksv_formatted_time">
+                        <div class="rksv-field d-flex justify-content-between">
+                            <span>Datum/Zeit:</span>
+                            <span t-esc="props.data.rksv_formatted_time" />
+                        </div>
+                    </t>
+                    
+                    <!-- Receipt Number -->
+                    <t t-if="props.data.rksv_receipt_number">
+                        <div class="rksv-field d-flex justify-content-between">
+                            <span>RKSV-Beleg:</span>
+                            <span t-esc="props.data.rksv_receipt_number" />
+                        </div>
+                    </t>
+                    
+                    <!-- Receipt Status -->
+                    <div class="rksv-field d-flex justify-content-between">
+                        <span>Status:</span>
+                        <span t-esc="props.data.rksv_is_offline ? 'Offline' : (props.data.rksv_signing_success ? 'Signiert' : 'Nicht signiert')" />
+                    </div>
+                    
+                    <!-- QR Code Data (if available) -->
+                    <t t-if="props.data.rksv_qr_code_svg">
+                        <div class="rksv-field text-center" style="margin-top: 10px;">
+                            <img t-att-src="props.data.rksv_qr_code_svg" 
+                                 alt="RKSV QR Code" 
+                                 class="pos-receipt-qrcode"
+                                 style="max-width: 200px; height: auto;" />
+                        </div>
+                    </t>
+                    
+                    <!-- Offline Instructions -->
+                    <t t-if="props.data.rksv_is_offline">
+                        <div class="rksv-offline-info text-center" style="color: #6c757d; font-size: 0.8em; margin-top: 15px; padding: 10px; border: 1px solid #dee2e6; background-color: #f8f9fa;">
+                            <div>Dieser Beleg wurde offline erstellt.</div>
+                            <div>Fiskalisierung erfolgt bei nächster Verbindung.</div>
+                        </div>
+                    </t>
+                </div>
+            </t>
+        </xpath>
+    </t>
+</templates> 

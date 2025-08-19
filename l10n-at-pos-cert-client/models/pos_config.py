@@ -379,3 +379,53 @@ class PosConfig(models.Model):
         except Exception as e:
             _logger.error('Unexpected error calling admin initialize cash register API: %s', str(e))
             return {'success': False, 'error': str(e)} 
+
+    def _call_admin_sign_receipt_api(self, receipt_data):
+        """Call admin module's sign receipt endpoint - follows existing pattern"""
+        try:
+            company = self.company_id
+            
+            # Prepare receipt signing data
+            signing_data = {
+                'cash_register_id': receipt_data.get('cash_register_id'),
+                'receipt_id': receipt_data.get('receipt_id'),
+                'pos_order_id': receipt_data.get('pos_order_id'),
+                'client_company_id': receipt_data.get('client_company_id'),
+                'schema': receipt_data.get('schema')
+            }
+            
+            # Make API call to admin module (following existing pattern)
+            api_url = f"{company.pos_cert_admin_url}/api/pos_cert/sign_receipt"
+            headers = {
+                'Authorization': f'Bearer {company.pos_cert_api_key}',
+                'Content-Type': 'application/json'
+            }
+            
+            _logger.info('Calling admin sign receipt API: %s', api_url)
+            _logger.info('Signing data: %s', signing_data)
+            
+            response = requests.post(
+                api_url, 
+                json=signing_data, 
+                headers=headers, 
+                timeout=30
+            )
+            
+            _logger.info('Admin API response status: %s', response.status_code)
+            _logger.info('Admin API response: %s', response.text)
+            
+            if response.status_code == 200:
+                data = response.json()
+                if data.get('success'):
+                    _logger.info('Successfully signed receipt: %s', data.get('status_id'))
+                    return data
+                else:
+                    _logger.error('Failed to sign receipt: %s', data.get('error'))
+                    return {'success': False, 'error': data.get('error')}
+            else:
+                _logger.error('HTTP error %s: %s', response.status_code, response.text)
+                return {'success': False, 'error': f'HTTP {response.status_code}'}
+                
+        except Exception as e:
+            _logger.error('Unexpected error calling admin sign receipt API: %s', str(e))
+            return {'success': False, 'error': str(e)} 

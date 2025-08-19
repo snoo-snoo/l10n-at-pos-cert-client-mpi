@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Extend POS Order Form View -->
+    <record id="view_pos_order_form_receipt_status" model="ir.ui.view">
+        <field name="name">pos.order.form.receipt.status</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='order_total']//field[@name='amount_total']" position="after">
+                <field name="receipt_id" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Extend POS Order List View -->
+    <record id="view_pos_order_list_receipt_status" model="ir.ui.view">
+        <field name="name">pos.order.list.receipt.status</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_order_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='amount_total']" position="after">
+                <field name="receipt_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Extend POS Order Search View -->
+    <record id="view_pos_order_search_receipt_status" model="ir.ui.view">
+        <field name="name">pos.order.search.receipt.status</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_order_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <field name="receipt_id"/>
+                <filter string="Receipt Signed" name="receipt_signed" domain="[('receipt_id.state', '=', 'signed')]"/>
+                <filter string="Receipt Failed" name="receipt_failed" domain="[('receipt_id.state', '=', 'failed')]"/>
+                <filter string="Receipt Pending" name="receipt_pending" domain="[('receipt_id.state', '=', 'pending')]"/>
+            </xpath>
+        </field>
+    </record>
+</odoo> 

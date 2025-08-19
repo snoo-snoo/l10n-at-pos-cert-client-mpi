@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="seq_pos_receipt" model="ir.sequence">
+            <field name="name">POS Receipt</field>
+            <field name="code">pos.receipt</field>
+            <field name="prefix">RCPT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        
+        <!-- Sequence for offline receipt numbers -->
+        <record id="seq_pos_receipt_offline" model="ir.sequence">
+            <field name="name">POS Receipt Offline</field>
+            <field name="code">pos.receipt.offline</field>
+            <field name="prefix">OFFLINE</field>
+            <field name="padding">5</field>
+            <field name="number_increment">1</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo> 
