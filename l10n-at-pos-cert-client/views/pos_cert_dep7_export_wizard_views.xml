@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="pos_cert_dep7_export_wizard_form_view" model="ir.ui.view">
+            <field name="name">pos.cert.dep7.export.wizard.form</field>
+            <field name="model">pos_cert_dep7_export_wizard</field>
+            <field name="arch" type="xml">
+                <form string="Export DEP7 Data">
+                    <group>
+                        <field name="start_receipt_number" 
+                               placeholder="e.g., 42"
+                               help="Only export receipts with receipt_number &gt;= this value"/>
+                        <field name="end_receipt_number" 
+                               placeholder="e.g., 100"
+                               help="Only export receipts with receipt_number &lt;= this value"/>
+                    </group>
+                    <group>
+                        <field name="start_time_signature" 
+                               help="Only export receipts with time_signature &gt;= this timestamp"/>
+                        <field name="end_time_signature" 
+                               help="Only export receipts with time_signature &lt;= this timestamp"/>
+                    </group>
+                    <footer>
+                        <button name="action_export_dep7" 
+                                string="Export" 
+                                type="object" 
+                                class="btn-primary"/>
+                        <button string="Cancel" 
+                                class="btn-secondary" 
+                                special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo> 

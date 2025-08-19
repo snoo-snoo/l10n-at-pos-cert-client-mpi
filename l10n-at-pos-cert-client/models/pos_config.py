@@ -436,3 +436,16 @@ class PosConfig(models.Model):
         except Exception as e:
             _logger.error('Unexpected error calling admin sign receipt API: %s', str(e))
             return {'success': False, 'error': str(e)} 
+
+    def action_export_dep7(self):
+        """Open DEP7 export wizard"""
+        return {
+            'name': 'Export DEP7 Data',
+            'type': 'ir.actions.act_window',
+            'res_model': 'pos_cert_dep7_export_wizard',
+            'view_mode': 'form',
+            'target': 'new',
+            'context': {
+                'default_pos_config_id': self.id,
+            }
+        } 

@@ -37,6 +37,12 @@
                                     class="btn-primary"
                                     invisible="pos_cert_cash_register_status != 'CREATED'"
                                     help="Initialize cash register"/>
+                            <button name="action_export_dep7" 
+                                    string="Export DEP7 Data" 
+                                    type="object" 
+                                    class="btn-secondary"
+                                    invisible="pos_cert_cash_register_id == False"
+                                    help="Export DEP7 data for audit purposes"/>
                         </group>
                     </group>
                 </xpath>
