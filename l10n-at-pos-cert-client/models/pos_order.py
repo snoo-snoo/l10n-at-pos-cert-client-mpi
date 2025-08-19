@@ -135,7 +135,7 @@ class PosOrder(models.Model):
                     'receipt_id': receipt_id,
                     'receipt_number': fiskaly_data.get('receipt_number'),
                     'time_signature': fiskaly_data.get('time_signature'),
-                    'cash_register_serial': fiskaly_data.get('cash_register_serial_number'),
+                    'cash_register_serial': fiskaly_data.get('cash_register_serial_number') or self.config_id.pos_cert_cash_register_serial_number,
                     'qr_code_data': fiskaly_data.get('qr_code_data'),
                     'signature_unit_id': fiskaly_data.get('signature_creation_unit_id'),
                     'fiskaly_response': json.dumps(fiskaly_data),
@@ -191,7 +191,7 @@ class PosOrder(models.Model):
     def _generate_offline_qr_data(self, receipt_id):
         """Generate QR code data for offline receipts with required SIGN AT data"""
         # Get cash register serial from config
-        cash_register_serial = self.config_id.pos_cert_cash_register_id or 'UNKNOWN'
+        cash_register_serial = self.config_id.pos_cert_cash_register_serial_number
         
         offline_data = {
             'type': 'offline_receipt',

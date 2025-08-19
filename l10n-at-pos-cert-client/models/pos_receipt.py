@@ -120,7 +120,7 @@ class PosReceipt(models.Model):
                     'signed_at': fields.Datetime.now(),
                     'receipt_number': fiskaly_data.get('receipt_number'),
                     'time_signature': fiskaly_data.get('time_signature'),
-                    'cash_register_serial': fiskaly_data.get('cash_register_serial_number'),
+                    'cash_register_serial': fiskaly_data.get('cash_register_serial_number') or self.pos_order_id.config_id.pos_cert_cash_register_serial_number,
                     'qr_code_data': fiskaly_data.get('qr_code_data'),
                     'is_offline_receipt': False,
                     'retry_count': self.retry_count + 1,

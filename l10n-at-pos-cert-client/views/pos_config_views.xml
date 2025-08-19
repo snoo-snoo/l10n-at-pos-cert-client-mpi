@@ -23,6 +23,7 @@
                         </group>
                         <group string="Cash Register Information" invisible="pos_cert_status != 'active'">
                             <field name="pos_cert_cash_register_id" readonly="1"/>
+                            <field name="pos_cert_cash_register_serial_number" readonly="1"/>
                             <field name="pos_cert_cash_register_status" readonly="1"/>
                             <button name="action_create_cash_register" 
                                     string="Create Cash Register" 

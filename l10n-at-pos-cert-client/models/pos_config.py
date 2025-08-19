@@ -35,6 +35,11 @@ class PosConfig(models.Model):
         help='Cash register ID'
     )
     
+    pos_cert_cash_register_serial_number = fields.Char(
+        string='Cash Register Serial Number',
+        help='Fiskaly cash register serial number'
+    )
+    
     pos_cert_cash_register_status = fields.Selection([
         ('CREATED', 'Created'),
         ('INITIALIZED', 'Initialized'),
@@ -132,6 +137,7 @@ class PosConfig(models.Model):
                 self.write({
                     'pos_cert_cash_register_id': result.get('cash_register_id'),
                     'pos_cert_cash_register_status': result.get('cash_register_status', 'REGISTERED'),
+                    'pos_cert_cash_register_serial_number': result.get('cash_register_serial_number'),
                 })
                 
                 _logger.info('Successfully created cash register: %s', result.get('cash_register_id'))
@@ -193,6 +199,7 @@ class PosConfig(models.Model):
                 # Update the record with cash register status
                 self.write({
                     'pos_cert_cash_register_status': result.get('cash_register_status', 'INITIALIZED'),
+                    'pos_cert_cash_register_serial_number': result.get('cash_register_serial_number'),
                 })
                 
                 _logger.info('Successfully initialized cash register: %s', self.pos_cert_cash_register_id)
