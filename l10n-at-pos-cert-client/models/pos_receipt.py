@@ -93,21 +93,12 @@ class PosReceipt(models.Model):
         """Retry fiscalization for failed receipts"""
         self.ensure_one()
         
-        if not self.schema_data:
-            raise ValidationError(_('No schema data available for retry'))
+        if not self.request_payload:
+            raise ValidationError(_('No request payload available for retry'))
         
         try:
-            # Parse stored schema
-            schema = json.loads(self.schema_data)
-            
-            # Prepare retry request
-            retry_data = {
-                'cash_register_id': self.pos_order_id.config_id.pos_cert_cash_register_id,
-                'receipt_id': self.receipt_id,
-                'pos_order_id': self.pos_order_id.id,
-                'client_company_id': self.pos_order_id.company_id.id,
-                'schema': schema
-            }
+            # Parse stored request payload
+            retry_data = json.loads(self.request_payload)
             
             # Call the fiscalization API again
             result = self.pos_order_id.config_id._call_admin_sign_receipt_api(retry_data)
@@ -153,19 +144,20 @@ class PosReceipt(models.Model):
             offline_receipts = self.search([
                 ('is_offline_receipt', '=', True),
                 ('state', '=', 'failed'),
-                ('schema_data', '!=', False),
+                ('request_payload', '!=', False),
                 ('retry_count', '<', 5)  # Limit retries to prevent infinite loops
-            ])
+            ]).sorted('created_at')  # Process chronologically - oldest first
             
             if not offline_receipts:
                 _logger.info('No offline receipts to retry')
                 return
             
-            _logger.info('Found %d offline receipts to retry', len(offline_receipts))
+            _logger.info('Found %d offline receipts to retry, processing in chronological order', len(offline_receipts))
             
             success_count = 0
             for receipt in offline_receipts:
                 try:
+                    _logger.info('Processing receipt %s (created at: %s)', receipt.name, receipt.created_at)
                     if receipt.action_retry_fiscalization():
                         success_count += 1
                         _logger.info('Successfully retried receipt %s', receipt.name)

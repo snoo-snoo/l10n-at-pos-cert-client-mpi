@@ -105,6 +105,9 @@ class PosOrder(models.Model):
             receipt_id = str(uuid.uuid4())
             _logger.info('Generated receipt ID: %s', receipt_id)
             
+            # Determine receipt_type based on order amount
+            receipt_type = 'CANCELLATION' if self.amount_total < 0 else 'NORMAL'
+            
             # Prepare receipt data in EKabs schema format
             schema_data = self._prepare_ekabs_schema()
             
@@ -114,7 +117,8 @@ class PosOrder(models.Model):
                 'receipt_id': receipt_id,
                 'pos_order_id': self.id,
                 'client_company_id': self.company_id.id,
-                'schema': schema_data
+                'schema': schema_data,
+                'receipt_type': receipt_type
             }
             
             _logger.info('Receipt request data: %s', receipt_data)

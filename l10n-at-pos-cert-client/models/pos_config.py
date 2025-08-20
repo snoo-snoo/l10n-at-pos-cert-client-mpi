@@ -398,7 +398,8 @@ class PosConfig(models.Model):
                 'receipt_id': receipt_data.get('receipt_id'),
                 'pos_order_id': receipt_data.get('pos_order_id'),
                 'client_company_id': receipt_data.get('client_company_id'),
-                'schema': receipt_data.get('schema')
+                'schema': receipt_data.get('schema'),
+                'receipt_type': receipt_data.get('receipt_type')
             }
             
             # Make API call to admin module (following existing pattern)
