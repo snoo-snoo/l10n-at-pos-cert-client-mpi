@@ -11,7 +11,7 @@
         
         Features:
         - Extended receipt template with RKSV compliance section
-        - Integration with pos.receipt model for Fiskaly data
+        - Integration with pos.receipt model for response data
         - Proper styling for receipt printing
         - Support for offline/error states
     """,

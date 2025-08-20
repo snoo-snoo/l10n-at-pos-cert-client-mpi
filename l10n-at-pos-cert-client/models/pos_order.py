@@ -89,7 +89,7 @@ class PosOrder(models.Model):
                 else:
                     order.receipt_id = False
     
-    def _sign_receipt_fiskaly(self):
+    def _sign_receipt(self):
         """Sign receipt via admin module with simplified offline handling"""
         self.ensure_one()
         
@@ -126,19 +126,19 @@ class PosOrder(models.Model):
             result = self.config_id._call_admin_sign_receipt_api(receipt_data)
             
             if result.get('success'):
-                # Extract data from Fiskaly response
-                fiskaly_data = result.get('data', {})
+                # Extract data from response
+                response_data = result.get('data', {})
                 
-                # Create receipt record with complete Fiskaly data
+                # Create receipt record with complete response data
                 receipt_vals = {
                     'pos_order_id': self.id,
                     'receipt_id': receipt_id,
-                    'receipt_number': fiskaly_data.get('receipt_number'),
-                    'time_signature': fiskaly_data.get('time_signature'),
-                    'cash_register_serial': fiskaly_data.get('cash_register_serial_number') or self.config_id.pos_cert_cash_register_serial_number,
-                    'qr_code_data': fiskaly_data.get('qr_code_data'),
-                    'signature_unit_id': fiskaly_data.get('signature_creation_unit_id'),
-                    'fiskaly_response': json.dumps(fiskaly_data),
+                    'receipt_number': response_data.get('receipt_number'),
+                    'time_signature': response_data.get('time_signature'),
+                    'cash_register_serial': response_data.get('cash_register_serial_number') or self.config_id.pos_cert_cash_register_serial_number,
+                    'qr_code_data': response_data.get('qr_code_data'),
+                    'signature_unit_id': response_data.get('signature_creation_unit_id'),
+                    'response': json.dumps(response_data),
                     'state': 'signed',
                     'signed_at': fields.Datetime.now(),
                     'is_offline_receipt': False,
@@ -300,6 +300,6 @@ class PosOrder(models.Model):
         
         # Add receipt signing logic
         if self.config_id.pos_cert_cash_register_id:
-            self._sign_receipt_fiskaly()
+            self._sign_receipt()
         
         return res 

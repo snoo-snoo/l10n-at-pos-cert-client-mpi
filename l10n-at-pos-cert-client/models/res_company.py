@@ -110,7 +110,7 @@ class ResCompany(models.Model):
             }
             
             # Call admin endpoint
-            url = f"{self.pos_cert_admin_url}/api/pos_cert/create_fiskaly_organization"
+            url = f"{self.pos_cert_admin_url}/api/pos_cert/create_organization"
             payload = {
                 'company_data': company_data,
             }

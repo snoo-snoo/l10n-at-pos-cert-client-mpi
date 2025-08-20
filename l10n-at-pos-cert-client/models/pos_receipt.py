@@ -19,7 +19,7 @@ class PosReceipt(models.Model):
                       default=lambda self: _('New'))
     pos_order_id = fields.Many2one('pos.order', string='POS Order', required=True, ondelete='cascade')
     
-    # Receipt data fields (populated from Fiskaly response)
+    # Receipt data fields (populated from response)
     receipt_id = fields.Char(string='Receipt ID (UUID)', readonly=True)
     receipt_number = fields.Char(string='RKSV Receipt Number', readonly=True)
     time_signature = fields.Integer(string='Time Signature', readonly=True)
@@ -30,8 +30,8 @@ class PosReceipt(models.Model):
     # Schema data for retry attempts
     schema_data = fields.Text(string='Receipt Schema', readonly=True)
     
-    # Complete Fiskaly response storage
-    fiskaly_response = fields.Text(string='Complete Fiskaly Response', readonly=True)
+    # Complete response storage
+    response = fields.Text(string='Complete Response', readonly=True)
     
     # New fields for offline handling
     is_offline_receipt = fields.Boolean(
@@ -114,14 +114,14 @@ class PosReceipt(models.Model):
             
             if result.get('success'):
                 # Update receipt with successful data
-                fiskaly_data = result.get('data', {})
+                response_data = result.get('data', {})
                 self.write({
                     'state': 'signed',
                     'signed_at': fields.Datetime.now(),
-                    'receipt_number': fiskaly_data.get('receipt_number'),
-                    'time_signature': fiskaly_data.get('time_signature'),
-                    'cash_register_serial': fiskaly_data.get('cash_register_serial_number') or self.pos_order_id.config_id.pos_cert_cash_register_serial_number,
-                    'qr_code_data': fiskaly_data.get('qr_code_data'),
+                    'receipt_number': response_data.get('receipt_number'),
+                    'time_signature': response_data.get('time_signature'),
+                    'cash_register_serial': response_data.get('cash_register_serial_number') or self.pos_order_id.config_id.pos_cert_cash_register_serial_number,
+                    'qr_code_data': response_data.get('qr_code_data'),
                     'is_offline_receipt': False,
                     'retry_count': self.retry_count + 1,
                     'last_retry_at': fields.Datetime.now(),

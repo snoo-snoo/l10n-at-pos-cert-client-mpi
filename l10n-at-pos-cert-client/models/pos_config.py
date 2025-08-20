@@ -37,7 +37,7 @@ class PosConfig(models.Model):
     
     pos_cert_cash_register_serial_number = fields.Char(
         string='Cash Register Serial Number',
-        help='Fiskaly cash register serial number'
+        help='Cash register serial number'
     )
     
     pos_cert_cash_register_status = fields.Selection([

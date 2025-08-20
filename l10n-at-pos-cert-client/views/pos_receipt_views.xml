@@ -56,8 +56,8 @@
                         <page string="QR Code Data">
                             <field name="qr_code_data" readonly="1"/>
                         </page>
-                        <page string="Fiskaly Response">
-                            <field name="fiskaly_response" readonly="1"/>
+                        <page string="Response">
+                            <field name="response" readonly="1"/>
                         </page>
                         <page string="Error Information">
                             <field name="error_message" readonly="1"/>
