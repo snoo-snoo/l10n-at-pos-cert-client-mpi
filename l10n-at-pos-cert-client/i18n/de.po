@@ -1,0 +1,827 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n-at-pos-cert-client
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-27 10:00+0000\n"
+"PO-Revision-Date: 2025-01-27 10:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_pos_config__pos_cert_status
+msgid "Cash Register Status"
+msgstr "Kassenstatus"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,help:l10n-at-pos-cert-client.field_pos_config__pos_cert_status
+msgid "Status of the cash register registration"
+msgstr "Status der Kassenregistrierung"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_pos_config__pos_cert_registration_date
+msgid "Registration Date"
+msgstr "Registrierungsdatum"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,help:l10n-at-pos-cert-client.field_pos_config__pos_cert_registration_date
+msgid "Date when the cash register was registered"
+msgstr "Datum, an dem die Kasse registriert wurde"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_pos_config__pos_cert_subscription_id
+msgid "POS Certification Subscription ID"
+msgstr "POS-Zertifizierungs-Abonnement-ID"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,help:l10n-at-pos-cert-client.field_pos_config__pos_cert_subscription_id
+msgid "Subscription order ID from admin module for this cash register"
+msgstr "Abonnement-Bestell-ID vom Admin-Modul für diese Kasse"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_pos_config__pos_cert_cash_register_id
+msgid "Cash Register ID"
+msgstr "Kassen-ID"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,help:l10n-at-pos-cert-client.field_pos_config__pos_cert_cash_register_id
+msgid "Cash register ID"
+msgstr "Kassen-ID"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_pos_config__pos_cert_cash_register_serial_number
+msgid "Cash Register Serial Number"
+msgstr "Kassenserialnummer"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,help:l10n-at-pos-cert-client.field_pos_config__pos_cert_cash_register_serial_number
+msgid "Cash register serial number"
+msgstr "Kassenserialnummer"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_pos_config__pos_cert_cash_register_status
+msgid "Cash Register Status"
+msgstr "Kassenstatus"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,help:l10n-at-pos-cert-client.field_pos_config__pos_cert_cash_register_status
+msgid "Status of the cash register"
+msgstr "Status der Kasse"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields.selection,name:l10n-at-pos-cert-client.selection__pos_config__pos_cert_cash_register_status__CREATED
+msgid "Created"
+msgstr "Erstellt"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields.selection,name:l10n-at-pos-cert-client.selection__pos_config__pos_cert_cash_register_status__INITIALIZED
+msgid "Initialized"
+msgstr "Initialisiert"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields.selection,name:l10n-at-pos-cert-client.selection__pos_config__pos_cert_cash_register_status__DECOMMISSIONED
+msgid "Decommissioned"
+msgstr "Außer Betrieb"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields.selection,name:l10n-at-pos-cert-client.selection__pos_config__pos_cert_cash_register_status__DEFECTIVE
+msgid "Defective"
+msgstr "Defekt"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields.selection,name:l10n-at-pos-cert-client.selection__pos_config__pos_cert_cash_register_status__OUTAGE
+msgid "Outage"
+msgstr "Ausfall"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_pos_receipt__name
+msgid "Receipt Reference"
+msgstr "Belegreferenz"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_pos_receipt__pos_order_id
+msgid "POS Order"
+msgstr "POS-Bestellung"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_pos_receipt__receipt_id
+msgid "Receipt ID (UUID)"
+msgstr "Beleg-ID (UUID)"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_pos_receipt__receipt_number
+msgid "RKSV Receipt Number"
+msgstr "RKSV-Belegnummer"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_pos_receipt__time_signature
+msgid "Time Signature"
+msgstr "Zeitstempel"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_pos_receipt__cash_register_serial
+msgid "Cash Register Serial"
+msgstr "Kassenserialnummer"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_pos_receipt__qr_code_data
+msgid "QR Code Data"
+msgstr "QR-Code-Daten"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_pos_receipt__signature_unit_id
+msgid "Signature Unit ID"
+msgstr "Signaturgeräte-ID"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_pos_receipt__schema_data
+msgid "Receipt Schema"
+msgstr "Belegschema"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_pos_receipt__response
+msgid "Complete Response"
+msgstr "Vollständige Antwort"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_pos_receipt__is_offline_receipt
+msgid "Offline Receipt"
+msgstr "Offline-Beleg"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,help:l10n-at-pos-cert-client.field_pos_receipt__is_offline_receipt
+msgid "Indicates if this receipt was generated offline due to API failure"
+msgstr "Zeigt an, ob dieser Beleg offline aufgrund eines API-Fehlers generiert wurde"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_pos_receipt__request_payload
+msgid "Request Payload"
+msgstr "Anfrage-Payload"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,help:l10n-at-pos-cert-client.field_pos_receipt__request_payload
+msgid "Complete request payload for replay when API comes back online"
+msgstr "Vollständiger Anfrage-Payload für die Wiederholung, wenn die API wieder online ist"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_pos_receipt__retry_count
+msgid "Retry Count"
+msgstr "Wiederholungsanzahl"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,help:l10n-at-pos-cert-client.field_pos_receipt__retry_count
+msgid "Number of times this receipt has been retried"
+msgstr "Anzahl der Wiederholungsversuche für diesen Beleg"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_pos_receipt__last_retry_at
+msgid "Last Retry At"
+msgstr "Letzter Wiederholungsversuch um"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_pos_receipt__state
+msgid "Status"
+msgstr "Status"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields.selection,name:l10n-at-pos-cert-client.selection__pos_receipt__state__draft
+msgid "Draft"
+msgstr "Entwurf"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields.selection,name:l10n-at-pos-cert-client.selection__pos_receipt__state__pending
+msgid "Pending"
+msgstr "Ausstehend"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields.selection,name:l10n-at-pos-cert-client.selection__pos_receipt__state__signed
+msgid "Signed"
+msgstr "Signiert"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields.selection,name:l10n-at-pos-cert-client.selection__pos_receipt__state__failed
+msgid "Failed"
+msgstr "Fehlgeschlagen"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_pos_receipt__error_message
+msgid "Error Message"
+msgstr "Fehlermeldung"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_pos_receipt__created_at
+msgid "Created At"
+msgstr "Erstellt um"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_pos_receipt__signed_at
+msgid "Signed At"
+msgstr "Signiert um"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_pos_receipt__formatted_time_signature
+msgid "Formatted Time Signature"
+msgstr "Formatierter Zeitstempel"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_res_company__pos_cert_admin_url
+msgid "Admin Module URL"
+msgstr "Admin-Modul-URL"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,help:l10n-at-pos-cert-client.field_res_company__pos_cert_admin_url
+msgid "URL of the admin module instance (e.g., http://admin:8069)"
+msgstr "URL der Admin-Modul-Instanz (z.B. http://admin:8069)"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_res_company__pos_cert_api_key
+msgid "API Key"
+msgstr "API-Schlüssel"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,help:l10n-at-pos-cert-client.field_res_company__pos_cert_api_key
+msgid "API key for authentication with admin module"
+msgstr "API-Schlüssel für die Authentifizierung mit dem Admin-Modul"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_res_company__pos_cert_status
+msgid "Subscription Status"
+msgstr "Abonnement-Status"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields.selection,name:l10n-at-pos-cert-client.selection__res_company__pos_cert_status__inactive
+msgid "Inactive"
+msgstr "Inaktiv"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields.selection,name:l10n-at-pos-cert-client.selection__res_company__pos_cert_status__pending
+msgid "Pending"
+msgstr "Ausstehend"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields.selection,name:l10n-at-pos-cert-client.selection__res_company__pos_cert_status__active
+msgid "Active"
+msgstr "Aktiv"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields.selection,name:l10n-at-pos-cert-client.selection__res_company__pos_cert_status__suspended
+msgid "Suspended"
+msgstr "Ausgesetzt"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields.selection,name:l10n-at-pos-cert-client.selection__res_company__pos_cert_status__expired
+msgid "Expired"
+msgstr "Abgelaufen"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_res_company__l10n_at_organization_status
+msgid "Organization Status"
+msgstr "Organisationsstatus"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields.selection,name:l10n-at-pos-cert-client.selection__res_company__l10n_at_organization_status__not_created
+msgid "Not Created"
+msgstr "Nicht erstellt"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields.selection,name:l10n-at-pos-cert-client.selection__res_company__l10n_at_organization_status__creating
+msgid "Creating"
+msgstr "Wird erstellt"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields.selection,name:l10n-at-pos-cert-client.selection__res_company__l10n_at_organization_status__created
+msgid "Created"
+msgstr "Erstellt"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields.selection,name:l10n-at-pos-cert-client.selection__res_company__l10n_at_organization_status__failed
+msgid "Failed"
+msgstr "Fehlgeschlagen"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_res_company__l10n_at_organization_error
+msgid "Organization Error"
+msgstr "Organisationsfehler"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,help:l10n-at-pos-cert-client.field_res_company__l10n_at_organization_error
+msgid "Error message if organization creation failed"
+msgstr "Fehlermeldung, wenn die Organisationserstellung fehlgeschlagen ist"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_res_company__l10n_at_fon_participant_id
+msgid "FON Participant ID"
+msgstr "FON-Teilnehmer-ID"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,help:l10n-at-pos-cert-client.field_res_company__l10n_at_fon_participant_id
+msgid "FON Participant ID (8-12 characters, alphanumeric)"
+msgstr "FON-Teilnehmer-ID (8-12 Zeichen, alphanumerisch)"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_res_company__l10n_at_fon_user_id
+msgid "FON User ID"
+msgstr "FON-Benutzer-ID"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,help:l10n-at-pos-cert-client.field_res_company__l10n_at_fon_user_id
+msgid "FON User ID (5-12 characters)"
+msgstr "FON-Benutzer-ID (5-12 Zeichen)"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_res_company__l10n_at_fon_user_pin
+msgid "FON User PIN"
+msgstr "FON-Benutzer-PIN"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,help:l10n-at-pos-cert-client.field_res_company__l10n_at_fon_user_pin
+msgid "FON User PIN (5-128 characters)"
+msgstr "FON-Benutzer-PIN (5-128 Zeichen)"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_res_company__l10n_at_fon_authentication_status
+msgid "FON Authentication Status"
+msgstr "FON-Authentifizierungsstatus"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields.selection,name:l10n-at-pos-cert-client.selection__res_company__l10n_at_fon_authentication_status__unauthenticated
+msgid "Unauthenticated"
+msgstr "Nicht authentifiziert"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields.selection,name:l10n-at-pos-cert-client.selection__res_company__l10n_at_fon_authentication_status__authenticated
+msgid "Authenticated"
+msgstr "Authentifiziert"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_res_company__l10n_at_fon_authentication_date
+msgid "FON Authentication Date"
+msgstr "FON-Authentifizierungsdatum"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,help:l10n-at-pos-cert-client.field_res_company__l10n_at_fon_authentication_date
+msgid "Date when FON was last authenticated"
+msgstr "Datum der letzten FON-Authentifizierung"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_res_company__l10n_at_fon_authentication_error
+msgid "FON Authentication Error"
+msgstr "FON-Authentifizierungsfehler"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,help:l10n-at-pos-cert-client.field_res_company__l10n_at_fon_authentication_error
+msgid "Error message if FON authentication failed"
+msgstr "Fehlermeldung, wenn die FON-Authentifizierung fehlgeschlagen ist"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_res_company__l10n_at_scu_id
+msgid "SCU ID"
+msgstr "SCU-ID"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,help:l10n-at-pos-cert-client.field_res_company__l10n_at_scu_id
+msgid "Signature Creation Unit ID (UUID4)"
+msgstr "Signaturerstellungsgeräte-ID (UUID4)"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_res_company__l10n_at_scu_status
+msgid "SCU Status"
+msgstr "SCU-Status"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields.selection,name:l10n-at-pos-cert-client.selection__res_company__l10n_at_scu_status__PENDING
+msgid "Pending"
+msgstr "Ausstehend"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields.selection,name:l10n-at-pos-cert-client.selection__res_company__l10n_at_scu_status__CREATED
+msgid "Created"
+msgstr "Erstellt"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields.selection,name:l10n-at-pos-cert-client.selection__res_company__l10n_at_scu_status__INITIALIZED
+msgid "Initialized"
+msgstr "Initialisiert"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields.selection,name:l10n-at-pos-cert-client.selection__res_company__l10n_at_scu_status__DECOMMISSIONED
+msgid "Decommissioned"
+msgstr "Außer Betrieb"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields.selection,name:l10n-at-pos-cert-client.selection__res_company__l10n_at_scu_status__OUTAGE
+msgid "Outage"
+msgstr "Ausfall"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields.selection,name:l10n-at-pos-cert-client.selection__res_company__l10n_at_scu_status__DEFECTIVE
+msgid "Defective"
+msgstr "Defekt"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_res_company__l10n_at_scu_error
+msgid "SCU Error"
+msgstr "SCU-Fehler"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,help:l10n-at-pos-cert-client.field_res_company__l10n_at_scu_error
+msgid "Error message if SCU creation failed"
+msgstr "Fehlermeldung, wenn die SCU-Erstellung fehlgeschlagen ist"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_res_company__l10n_at_scu_initialization_error
+msgid "SCU Initialization Error"
+msgstr "SCU-Initialisierungsfehler"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,help:l10n-at-pos-cert-client.field_res_company__l10n_at_scu_initialization_error
+msgid "Error message if SCU initialization failed"
+msgstr "Fehlermeldung, wenn die SCU-Initialisierung fehlgeschlagen ist"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_pos_cert_dep7_export_wizard__pos_config_id
+msgid "POS Config"
+msgstr "POS-Konfiguration"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_pos_cert_dep7_export_wizard__start_receipt_number
+msgid "Start Receipt Number"
+msgstr "Start-Belegnummer"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_pos_cert_dep7_export_wizard__end_receipt_number
+msgid "End Receipt Number"
+msgstr "End-Belegnummer"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_pos_cert_dep7_export_wizard__start_time_signature
+msgid "Start Time Signature"
+msgstr "Start-Zeitstempel"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model.fields,field_description:l10n-at-pos-cert-client.field_pos_cert_dep7_export_wizard__end_time_signature
+msgid "End Time Signature"
+msgstr "End-Zeitstempel"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model,name:l10n-at-pos-cert-client.model_pos_cert_dep7_export_wizard
+msgid "POS Certification DEP7 Export Wizard"
+msgstr "POS-Zertifizierung DEP7-Export-Assistent"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.model,name:l10n-at-pos-cert-client.model_pos_receipt
+msgid "POS Receipt for RKSV Compliance"
+msgstr "POS-Beleg für RKSV-Konformität"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/pos_config.py:0
+msgid "Admin URL not configured. Please configure the admin URL in company settings."
+msgstr "Admin-URL nicht konfiguriert. Bitte konfigurieren Sie die Admin-URL in den Unternehmenseinstellungen."
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/pos_config.py:0
+msgid "API key not configured. Please configure the API key in company settings."
+msgstr "API-Schlüssel nicht konfiguriert. Bitte konfigurieren Sie den API-Schlüssel in den Unternehmenseinstellungen."
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/pos_config.py:0
+msgid "Registration Successful"
+msgstr "Registrierung erfolgreich"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/pos_config.py:0
+msgid "Cash register registered successfully. Please contact support for payment."
+msgstr "Kasse erfolgreich registriert. Bitte kontaktieren Sie den Support für die Zahlung."
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/pos_config.py:0
+msgid "Registration Failed"
+msgstr "Registrierung fehlgeschlagen"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/pos_config.py:0
+msgid "Failed to register cash register: %s"
+msgstr "Registrierung der Kasse fehlgeschlagen: %s"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/pos_config.py:0
+msgid "Error"
+msgstr "Fehler"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/pos_config.py:0
+msgid "Error registering cash register: %s"
+msgstr "Fehler bei der Registrierung der Kasse: %s"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/pos_config.py:0
+msgid "Cash Register Created"
+msgstr "Kasse erstellt"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/pos_config.py:0
+msgid "Cash register created successfully with ID: %s"
+msgstr "Kasse erfolgreich mit ID erstellt: %s"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/pos_config.py:0
+msgid "Creation Failed"
+msgstr "Erstellung fehlgeschlagen"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/pos_config.py:0
+msgid "Failed to create cash register: %s"
+msgstr "Erstellung der Kasse fehlgeschlagen: %s"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/pos_config.py:0
+msgid "Error creating cash register: %s"
+msgstr "Fehler bei der Erstellung der Kasse: %s"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/pos_config.py:0
+msgid "Cash Register Initialized"
+msgstr "Kasse initialisiert"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/pos_config.py:0
+msgid "Cash register initialized successfully"
+msgstr "Kasse erfolgreich initialisiert"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/pos_config.py:0
+msgid "Initialization Failed"
+msgstr "Initialisierung fehlgeschlagen"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/pos_config.py:0
+msgid "Failed to initialize cash register: %s"
+msgstr "Initialisierung der Kasse fehlgeschlagen: %s"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/pos_config.py:0
+msgid "Error initializing cash register: %s"
+msgstr "Fehler bei der Initialisierung der Kasse: %s"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/pos_config.py:0
+msgid "Export DEP7 Data"
+msgstr "DEP7-Daten exportieren"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/pos_receipt.py:0
+msgid "New"
+msgstr "Neu"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/pos_receipt.py:0
+msgid "No request payload available for retry"
+msgstr "Kein Anfrage-Payload für Wiederholungsversuch verfügbar"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/res_company.py:0
+msgid "Subscription must be active to create organization"
+msgstr "Abonnement muss aktiv sein, um Organisation zu erstellen"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/res_company.py:0
+msgid "Admin URL and API key must be configured"
+msgstr "Admin-URL und API-Schlüssel müssen konfiguriert sein"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/res_company.py:0
+msgid "Organization already created"
+msgstr "Organisation bereits erstellt"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/res_company.py:0
+msgid "Success"
+msgstr "Erfolg"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/res_company.py:0
+msgid "Organization created successfully: %s. Please refresh the page to see updated information."
+msgstr "Organisation erfolgreich erstellt: %s. Bitte aktualisieren Sie die Seite, um aktualisierte Informationen zu sehen."
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/res_company.py:0
+msgid "Failed to create organization: %s"
+msgstr "Erstellung der Organisation fehlgeschlagen: %s"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/res_company.py:0
+msgid "Error creating organization: %s"
+msgstr "Fehler bei der Erstellung der Organisation: %s"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/res_company.py:0
+msgid "Subscription must be active to create SCU"
+msgstr "Abonnement muss aktiv sein, um SCU zu erstellen"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/res_company.py:0
+msgid "Organization must be created before creating SCU"
+msgstr "Organisation muss vor der Erstellung der SCU erstellt werden"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/res_company.py:0
+msgid "SCU already exists for this company"
+msgstr "SCU existiert bereits für dieses Unternehmen"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/res_company.py:0
+msgid "VAT ID is required to create SCU"
+msgstr "USt-ID ist erforderlich, um SCU zu erstellen"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/res_company.py:0
+msgid "SCU created successfully: %s. Please refresh the page to see updated information."
+msgstr "SCU erfolgreich erstellt: %s. Bitte aktualisieren Sie die Seite, um aktualisierte Informationen zu sehen."
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/res_company.py:0
+msgid "Failed to create SCU: %s"
+msgstr "Erstellung der SCU fehlgeschlagen: %s"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/res_company.py:0
+msgid "Error creating SCU: %s"
+msgstr "Fehler bei der Erstellung der SCU: %s"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/res_company.py:0
+msgid "Subscription must be active to initialize SCU"
+msgstr "Abonnement muss aktiv sein, um SCU zu initialisieren"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/res_company.py:0
+msgid "SCU must be created before initializing"
+msgstr "SCU muss vor der Initialisierung erstellt werden"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/res_company.py:0
+msgid "SCU is already initialized"
+msgstr "SCU ist bereits initialisiert"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/res_company.py:0
+msgid "Cannot initialize SCU in current state: %s"
+msgstr "SCU kann im aktuellen Zustand nicht initialisiert werden: %s"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/res_company.py:0
+msgid "FON must be authenticated before initializing SCU. Please authenticate FON first."
+msgstr "FON muss vor der Initialisierung der SCU authentifiziert werden. Bitte authentifizieren Sie zuerst FON."
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/res_company.py:0
+msgid "SCU initialized successfully: %s. Please refresh the page to see updated information."
+msgstr "SCU erfolgreich initialisiert: %s. Bitte aktualisieren Sie die Seite, um aktualisierte Informationen zu sehen."
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/res_company.py:0
+msgid "Failed to initialize SCU: %s"
+msgstr "Initialisierung der SCU fehlgeschlagen: %s"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/res_company.py:0
+msgid "Error initializing SCU: %s"
+msgstr "Fehler bei der Initialisierung der SCU: %s"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/res_company.py:0
+msgid "Subscription must be active to authenticate FON"
+msgstr "Abonnement muss aktiv sein, um FON zu authentifizieren"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/res_company.py:0
+msgid "FON Participant ID is required"
+msgstr "FON-Teilnehmer-ID ist erforderlich"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/res_company.py:0
+msgid "FON User ID is required"
+msgstr "FON-Benutzer-ID ist erforderlich"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/res_company.py:0
+msgid "FON User PIN is required"
+msgstr "FON-Benutzer-PIN ist erforderlich"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/res_company.py:0
+msgid "FON authenticated successfully. Please refresh the page to see updated information."
+msgstr "FON erfolgreich authentifiziert. Bitte aktualisieren Sie die Seite, um aktualisierte Informationen zu sehen."
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/res_company.py:0
+msgid "Failed to authenticate FON: %s"
+msgstr "FON-Authentifizierung fehlgeschlagen: %s"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/res_company.py:0
+msgid "Error authenticating FON: %s"
+msgstr "Fehler bei der FON-Authentifizierung: %s"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/res_company.py:0
+msgid "Plan Cancelled"
+msgstr "Plan gekündigt"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/res_company.py:0
+msgid "Successfully cancelled subscription plan for %s. Please refresh the page to see updated information."
+msgstr "Abonnementplan für %s erfolgreich gekündigt. Bitte aktualisieren Sie die Seite, um aktualisierte Informationen zu sehen."
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/res_company.py:0
+msgid "Failed to cancel plan: %s"
+msgstr "Kündigung des Plans fehlgeschlagen: %s"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/res_company.py:0
+msgid "Admin URL and API Key are required"
+msgstr "Admin-URL und API-Schlüssel sind erforderlich"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/res_company.py:0
+msgid "POS Certification activated successfully! Please refresh the page to see updated information."
+msgstr "POS-Zertifizierung erfolgreich aktiviert! Bitte aktualisieren Sie die Seite, um aktualisierte Informationen zu sehen."
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/res_company.py:0
+msgid "Subscription not active: %s"
+msgstr "Abonnement nicht aktiv: %s"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/res_company.py:0
+msgid "Failed to activate POS certification"
+msgstr "Aktivierung der POS-Zertifizierung fehlgeschlagen"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/res_company.py:0
+msgid "Activation failed: %s"
+msgstr "Aktivierung fehlgeschlagen: %s"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/pos_cert_dep7_export_wizard.py:0
+msgid "Export Failed"
+msgstr "Export fehlgeschlagen"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/pos_cert_dep7_export_wizard.py:0
+msgid "Failed to export DEP7 data: %s"
+msgstr "Export der DEP7-Daten fehlgeschlagen: %s"
+
+#. module: l10n-at-pos-cert-client
+#: code:addons/l10n-at-pos-cert-client/models/pos_cert_dep7_export_wizard.py:0
+msgid "Error exporting DEP7 data: %s"
+msgstr "Fehler beim Export der DEP7-Daten: %s"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.actions.act_window,name:l10n-at-pos-cert-client.action_pos_receipt
+msgid "POS Receipts"
+msgstr "POS-Belege"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.ui.menu,name:l10n-at-pos-cert-client.menu_pos_receipt
+msgid "Receipts"
+msgstr "Belege"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.ui.view,name:l10n-at-pos-cert-client.view_pos_receipt_list
+msgid "pos.receipt.list"
+msgstr "pos.beleg.liste"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.ui.view,name:l10n-at-pos-cert-client.view_pos_receipt_form
+msgid "pos.receipt.form"
+msgstr "pos.beleg.formular"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.ui.view,name:l10n-at-pos-cert-client.view_pos_receipt_search
+msgid "pos.receipt.search"
+msgstr "pos.beleg.suche"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.ui.view,name:l10n-at-pos-cert-client.pos_cert_dep7_export_wizard_form_view
+msgid "pos.cert.dep7.export.wizard.form"
+msgstr "pos.zert.dep7.export.assistent.formular"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.ui.view,name:l10n-at-pos-cert-client.res_company_form_view_pos_cert
+msgid "res.company.form.pos.cert"
+msgstr "res.unternehmen.formular.pos.zert"
+
+#. module: l10n-at-pos-cert-client
+#: model:ir.ui.view,name:l10n-at-pos-cert-client.pos_config_form_view_pos_cert
+msgid "pos.config.form.pos.cert"
+msgstr "pos.konfig.formular.pos.zert"
