@@ -142,7 +142,7 @@ class ResCompany(models.Model):
                     'tag': 'display_notification',
                     'params': {
                         'title': 'Success',
-                        'message': f'Organization created successfully: {result.get("organization_id")}',
+                        'message': f'Organization created successfully: {result.get("organization_id")}. Please refresh the page to see updated information.',
                         'type': 'success',
                     }
                 }
@@ -242,7 +242,7 @@ class ResCompany(models.Model):
                     'tag': 'display_notification',
                     'params': {
                         'title': 'Success',
-                        'message': f'SCU created successfully: {result.get("scu_id")}',
+                        'message': f'SCU created successfully: {result.get("scu_id")}. Please refresh the page to see updated information.',
                         'type': 'success',
                     }
                 }
@@ -349,7 +349,7 @@ class ResCompany(models.Model):
                     'tag': 'display_notification',
                     'params': {
                         'title': 'Success',
-                        'message': f'SCU initialized successfully: {result.get("message")}',
+                        'message': f'SCU initialized successfully: {result.get("message")}. Please refresh the page to see updated information.',
                         'type': 'success',
                     }
                 }
@@ -450,7 +450,7 @@ class ResCompany(models.Model):
                     'tag': 'display_notification',
                     'params': {
                         'title': 'Success',
-                        'message': 'FON authenticated successfully',
+                        'message': 'FON authenticated successfully. Please refresh the page to see updated information.',
                         'type': 'success',
                     }
                 }
@@ -507,7 +507,7 @@ class ResCompany(models.Model):
                 'tag': 'display_notification',
                 'params': {
                     'title': 'Plan Cancelled',
-                    'message': f'Successfully cancelled subscription plan for {self.name}.',
+                    'message': f'Successfully cancelled subscription plan for {self.name}. Please refresh the page to see updated information.',
                     'type': 'success',
                 }
             }
@@ -524,28 +524,62 @@ class ResCompany(models.Model):
                 }
             }
     
-    def action_subscribe_to_pos_cert(self):
-        """Action to subscribe to POS certification service"""
+    def action_activate_pos_cert(self):
+        """Activate POS certification by calling admin API"""
+        self.ensure_one()
+        
         try:
-            # Open subscription wizard
-            return {
-                'type': 'ir.actions.act_window',
-                'res_model': 'pos_cert_plan_selection_wizard',
-                'view_mode': 'form',
-                'target': 'new',
-                'context': {
-                    'default_company_id': self.id,
-                }
+            if not self.pos_cert_admin_url or not self.pos_cert_api_key:
+                raise UserError(_("Admin URL and API Key are required"))
+            
+            # Call admin module to verify subscription status
+            api_url = f"{self.pos_cert_admin_url}/api/activate"
+            data = {
+                'api_key': self.pos_cert_api_key,
+                'company_name': self.name
             }
             
+            _logger.info('Calling admin activate API: %s', api_url)
+            _logger.info('Activation data: %s', data)
+            
+            response = requests.post(api_url, data=data, timeout=30)
+            
+            _logger.info('Admin API response status: %s', response.status_code)
+            _logger.info('Admin API response: %s', response.text)
+            
+            if response.status_code == 200:
+                result = response.json()
+                if result.get('status') == 'active':
+                    # Update local status
+                    self.write({
+                        'pos_cert_status': 'active'
+                    })
+                    
+                    _logger.info('Successfully activated POS certification for company %s', self.name)
+                    
+                    return {
+                        'type': 'ir.actions.client',
+                        'tag': 'display_notification',
+                        'params': {
+                            'title': 'Success',
+                            'message': 'POS Certification activated successfully! Please refresh the page to see updated information.',
+                            'type': 'success',
+                        }
+                    }
+                else:
+                    error_msg = result.get('error', 'Unknown error')
+                    raise UserError(f"Subscription not active: {error_msg}")
+            else:
+                raise UserError("Failed to activate POS certification")
+                
         except Exception as e:
-            _logger.error('Error in action_subscribe_to_pos_cert: %s', str(e))
+            _logger.error('Error activating POS certification: %s', str(e))
             return {
                 'type': 'ir.actions.client',
                 'tag': 'display_notification',
                 'params': {
                     'title': 'Error',
-                    'message': f'Unexpected error: {str(e)}',
+                    'message': f'Activation failed: {str(e)}',
                     'type': 'danger',
                 }
             } 

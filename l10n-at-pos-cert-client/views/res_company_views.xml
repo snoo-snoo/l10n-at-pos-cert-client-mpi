@@ -26,16 +26,16 @@
                                     type="object" 
                                     class="btn-primary"
                                     invisible="pos_cert_status != 'active' or l10n_at_organization_status == 'created' or l10n_at_organization_status == 'creating'"/>
-                            <button name="action_subscribe_to_pos_cert" 
-                                    string="Subscribe to POS Certification" 
+                            <button name="action_activate_pos_cert" 
+                                    string="Activate POS Certification" 
                                     type="object" 
                                     class="btn-primary"
                                     invisible="pos_cert_status != 'inactive'"/>
-                            <button name="cancel_plan" 
+                            <!-- <button name="cancel_plan" 
                                     string="Cancel Plan" 
                                     type="object" 
                                     class="btn-danger"
-                                    invisible="pos_cert_status == 'inactive'"/>
+                                    invisible="pos_cert_status == 'inactive'"/> -->
                         </group>
                         <div class="alert alert-info" role="alert" invisible="pos_cert_status != 'active' or l10n_at_organization_status == 'created'">
                             <strong>Note:</strong> Click "Create Organization" to set up your Austrian fiscal compliance.

@@ -29,7 +29,7 @@
         'views/pos_receipt_views.xml',
         'views/pos_config_views.xml',
         'views/res_company_views.xml',
-        'views/pos_cert_plan_selection_wizard_views.xml',
+
         'views/pos_cert_dep7_export_wizard_views.xml',
     ],
     'assets': {
