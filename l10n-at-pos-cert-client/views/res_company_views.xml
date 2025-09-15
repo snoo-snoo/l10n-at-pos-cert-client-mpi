@@ -58,8 +58,7 @@
                             <button name="action_authenticate_fon" 
                                     string="Authenticate FON" 
                                     type="object" 
-                                    class="btn-primary"
-                                    invisible="l10n_at_fon_authentication_status == 'authenticated'"/>
+                                    class="btn-primary"/>
                         </group>
                         <div class="alert alert-info" role="alert" invisible="pos_cert_status != 'active' or l10n_at_organization_status == 'created'">
                             <strong>FON Authentication:</strong> Enter your FinanzOnline credentials and click "Authenticate FON" to complete the Austrian fiscal compliance setup.

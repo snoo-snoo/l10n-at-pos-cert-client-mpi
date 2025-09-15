@@ -29,7 +29,6 @@
                                     string="Create Cash Register" 
                                     type="object" 
                                     class="btn-primary"
-                                    invisible="pos_cert_cash_register_id"
                                     help="Create cash register"/>
                             <button name="action_initialize_cash_register" 
                                     string="Initialize Cash Register" 
