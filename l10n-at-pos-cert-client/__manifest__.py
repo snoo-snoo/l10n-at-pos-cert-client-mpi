@@ -7,7 +7,7 @@
     'summary': 'RKSV compliance for Austrian Point of Sale',
     'description': 'static/description/home.html',
     'images': ['static/description/icon.png'],
-    'author': 'Ngyuen Tran and Michael Plöckinger',
+    'author': 'MPI GmbH',
     'website': 'https://www.mpi-erp.at',
     'repository': 'ssh://git@github.com/snoo-snoo/mpi-l10n-at-pos-cert-client.git#18.0',
     'price': 290.00,
