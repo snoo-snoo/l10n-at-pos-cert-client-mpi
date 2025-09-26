@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
 {
-    'name': 'RKSV-Modul für Österreichische Registriekassen',
+    'name': 'RKSV-Modul für österreichische Registrierkassen',
     'version': '18.0.1.0.0',
     'category': 'Point of Sale',
-    'summary': 'RKSV-Modul für Österreichische Registriekassen',
+    'summary': 'RKSV-Modul für österreichische Registrierkassen',
     'description': 'static/description/home.html',
     'images': ['static/description/icon.png'],
     'author': 'MPI GmbH',
