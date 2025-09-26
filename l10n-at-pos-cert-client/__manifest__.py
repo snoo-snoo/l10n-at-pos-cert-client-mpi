@@ -2,7 +2,7 @@
 
 {
     'name': 'Austrian POS RKSV Compliance Client',
-    'version': '1.0.0',
+    'version': '18.0.1.0',
     'category': 'Point of Sale',
     'summary': 'RKSV compliance for Austrian Point of Sale',
     'description': """
@@ -15,8 +15,10 @@
         - Proper styling for receipt printing
         - Support for offline/error states
     """,
-    'author': 'MPI',
-    'website': 'https://www.mpi.com',
+    'author': 'Ngyuen Tran, Michael Plöckinger',
+    'website': 'https://www.mpi-erp.at',
+    'price': 290.00,
+    'currency': 'EUR',
     'depends': [
         'point_of_sale',
         'base',
@@ -29,7 +31,6 @@
         'views/pos_receipt_views.xml',
         'views/pos_config_views.xml',
         'views/res_company_views.xml',
-
         'views/pos_cert_dep7_export_wizard_views.xml',
     ],
     'assets': {

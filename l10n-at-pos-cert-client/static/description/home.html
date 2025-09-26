@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPI Österreichische Kassen Finanzamtsschnittstelle (RKSV)</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Custom styles -->
+    <style>
+        /* Chỉ giữ lại một số style cần thiết không có trong Bootstrap */
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, #51cda6 0%, #90e0ef 100%);
+        }
+
+        .bg-gradient-section {
+            background: linear-gradient(180deg, #ffffff, #c4e7e5, #ffffff);
+        }
+
+        .btn-contact {
+            background: #54d6b7;
+            transition: all 0.3s;
+        }
+
+        .btn-contact:hover {
+            background: #3aafa9;
+        }
+
+        .demo-tab.active {
+            background: #e8eff2;
+            font-weight: 700;
+            color: #54d6b7;
+        }
+
+        :root {
+            --primary-color: #ffffff;
+            --secondary-color: #ffffff;
+            --accent-color: #90e0ef;
+            --dark-color: #ffffff;
+            --text-primary: #3aafa9;
+            --button-bg: #ef5350;
+            --btn-success: #54d6b7;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background: #fff;
+        }
+
+        .accordion-item {
+            overflow: hidden;
+        }
+
+        .accordion-item .accordion-collapse {
+            border-bottom-left-radius: 1rem;
+            border-bottom-right-radius: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg bg-white py-3">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="image/logo_app.png" alt="Logo" height="60" width="135" class="img-fluid">
+            </a>
+            <a href="mailto:office@mpi-erp.at" class="btn btn-contact text-white fw-bold px-4 py-2 rounded-3 text-decoration-none">
+                Kontakt
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section py-5 bg-white">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+
+                <!-- Left content -->
+                <div class="col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
+                    <h1 class="fw-bold mb-4 text-teal font-inter display-5 lh-sm" style="color: #3aafa9;">
+                        MPI Österreichische <br>
+                        Registrierkassen Finanzamtsschnittstelle<br>
+                        (RKSV)
+                    </h1>
+                    <p class="lead mb-4 text-secondary fs-4">
+                        RKSV-Konformität auf Ihrer Registrierkasse
+                        
+                    </p>
+                    <a href="https://mpi-erp.at/services/odoo/plugins" target="_blank" class="btn fw-bold rounded-3 px-4 py-2 button-bg text-decoration-none"
+                        style="background-color: #e75664; color: #ffffff;">
+                        Jetzt testen
+                    </a>
+                </div>
+
+                <!-- Right image -->
+                <div class="col-lg-6 text-center">
+                    <img src="image/banner.png" alt="POS Banner" class="img-fluid ">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <div class="module-outstanding-section position-relative bg-gradient-section py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="fw-bold fs-1 text-dark">Modul  </span>
+                <span class="fw-bold fs-1" style="color:#3aafa9;">Funktionen</span>
+                <div class="mx-auto my-3" style="width:133px;height:2px;background:#5A6A72;"></div>
+            </div>
+            <section id="features" class="py-3">
+                <div class="row g-4 justify-content-center">
+                    <div class="col-12 col-md-6 text-center">
+                        <div class="p-4 ">
+                            <img src="image/setting_image.png" alt="Feature Icon" class="mb-4" style="width:120px;">
+                            <h3 class="fw-bold fs-2 mb-3">RKSV-konforme Kassenbelege</h3>
+                            <p class="text-secondary fs-5">Elektronische Kassen-/Transaktionsbeleg-Zeichen gemäß
+                                RKSV-Standard.</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 text-center">
+                        <div class="p-4 ">
+                            <img src="image/setting_image.png" alt="Feature Icon" class="mb-4" style="width:120px;">
+                            <h3 class="fw-bold fs-2 mb-3">Rechtliche QR-Code- & Signatur-Druck</h3>
+                            <p class="text-secondary fs-5">Drucken Sie QR-Codes oder Signatur-Strings auf Rechnungen, um die rechtlichen
+                                Anforderungen zu erfüllen.</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 text-center">
+                        <div class="p-4">
+                            <img src="image/setting_image.png" alt="Feature Icon" class="mb-4" style="width:120px;">
+                            <h3 class="fw-bold fs-2 mb-3">Österreichische Kassen-Compliance-Belege</h3>
+                            <p class="text-secondary fs-5">Nur für Unternehmen mit Kassen, die nach österreichischem
+                                Recht verpflichtet sind, diesen QR-Code auf ihren Belegen zu drucken.</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 text-center">
+                        <div class="p-4 ">
+                            <img src="image/setting_image.png" alt="Feature Icon" class="mb-4" style="width:120px;">
+                            <h3 class="fw-bold fs-2 mb-3">Transaktionsprotokoll-Speicherung & Export (DEP)</h3>
+                            <p class="text-secondary fs-5">Speichern & exportieren Sie Transaktionsprotokolle (Datenerfassungsprotokoll)
+                                für Prüfungszwecke.</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 text-center">
+                        <div class="p-4">
+                            <img src="image/setting_image.png" alt="Feature Icon" class="mb-4" style="width:120px;">
+                            <h3 class="fw-bold fs-2 mb-3">Automatisierte Sonderbelege (Start, Null, Storno)</h3>
+                            <p class="text-secondary fs-5">Automatische Generierung von Sonderbelegen: Startbeleg
+                                (Initialisierung), Nullbeleg (monatlich), Stornobeleg (Stornierung).</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 text-center">
+                        <div class="p-4">
+                            <img src="image/setting_image.png" alt="Feature Icon" class="mb-4" style="width:120px;">
+                            <h3 class="fw-bold fs-2 mb-3">Cloud-Integration</h3>
+                            <p class="text-secondary fs-5">Technische Implementierung mit Fiskaly API: Das Fiskaly Cloud
+                                TSS ersetzt lokale Signatur-Hardware und verwaltet RKSV-Signierung in der Cloud.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="d-none d-md-block position-absolute"
+                style="left: -20px; bottom: 40px; width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, #51cda6 0%, #90e0ef 100%); box-shadow: 0 2px 8px rgba(0,0,0,0.12);">
+            </div>
+        </div>
+    </div>
+
+    <!-- Demo Screenshots Section -->
+    <section id="contact-demo" class="py-5 position-relative">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 position-relative">
+                    <!-- Gradient line -->
+                    <div class="mx-auto mb-5"
+                        style="width:266px;height:5px;background:linear-gradient(90deg,#3aafa9 0%,#51cda6 50%,#a9e7d4 100%);border-radius:3px;">
+                    </div>
+                    <!-- Decorative arrows (hidden on mobile) -->
+                    <img src="image/deco-img-arrow.png" alt="" class="position-absolute d-none d-lg-block"
+                        style="top:40px;left:150px;height:208px;z-index:1;">
+                    <img src="image/deco-img-arrow2.png" alt="" class="position-absolute d-none d-lg-block"
+                        style="top:40px;right:0;height:282px;z-index:1;">
+                    <div class="text-center mb-5">
+                        <h2 class="fw-bold mb-4" style="color:#51cda6;font-size:2rem;">
+                            Funktionen <span class="text-dark">Details</span>
+                        </h2>
+                        <div class="d-flex flex-wrap justify-content-center align-items-center gap-3 mt-2 mb-2">
+                            <span class="demo-tab active fw-bold rounded-3 px-4 py-2">
+                                RKSV-Signatur
+                            </span>
+                            <span class="demo-tab   rounded-3 px-4 py-2 fw-semibold" style="cursor:pointer;">
+                                Datenspeicherung
+                            </span>
+                            <span class="demo-tab  rounded-3 px-4 py-2 fw-semibold" style="cursor:pointer;">
+                                Kassen-Zertifikat einrichten
+                            </span>
+                        </div>
+                        <h3 id="tab-title" class="fs-2 fw-bold text-dark mt-4 mb-4">
+                            Verkaufsprozess & Elektronische Signatur
+                        </h3>
+                    </div>
+                    <div class="row justify-content-center mb-4">
+                        <div class="col-lg-10 text-center" id="demo-content"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Decorative circle (hidden on mobile) -->
+            <div class="d-none d-md-block position-absolute"
+                style="right:50px;bottom:20px;width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#51cda6 0%,#90e0ef 100%);box-shadow:0 2px 8px rgba(0,0,0,0.12);">
+            </div>
+        </div>
+    </section>
+
+
+    <!-- New Contact Demo Section -->
+    <section id="contact-demo" class="bg-white py-5 position-relative">
+        <div class="container position-relative">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <div class=" mb-4" style="width:266px; height:5px; background-color: #51cda6;"></div>
+                    <h1 class="fw-bold mb-2" style="font-size:2.5rem; color:#222;">
+                        Kontaktieren Sie uns jetzt für eine KOSTENLOSE DEMO<br>
+                        von <span style="color:#51cda6;">MPI GmbH</span>
+                    </h1>
+                    <p class="text-secondary fs-5 mt-4 mb-4">
+                        Wir bieten Ihnen ein DEMO-Modul an, bevor Sie sich zum Kauf entscheiden. Bitte kontaktieren Sie uns per  E-Mail unten:
+                    </p>
+                    <div class="d-flex flex-column flex-md-row gap-3 mt-2 mb-4">
+                        <a href="mailto:office@mpi-erp.at"
+                            class="btn btn-outline-success fw-bold rounded-3 px-4 py-2">
+                            E-Mail senden
+                        </a>
+                    </div>
+                    <ul class="list-unstyled mt-4">
+                        <li class="d-flex align-items-start mb-3">
+                            <img src="image/tick.png" alt="tick" class="me-3" style="max-width:25px;">
+                            <span>Elektronische Kassen-/Transaktionsbeleg-<br>Zeichen gemäß RKSV-Standard.</span>
+                        </li>
+                        <li class="d-flex align-items-start mb-3">
+                            <img src="image/tick.png" alt="tick" class="me-3" style="max-width:25px;">
+                            <span>Drucken Sie QR-Codes oder Signatur-Strings auf Rechnungen, um rechtliche Anforderungen zu erfüllen.</span>
+                        </li>
+                        <li class="d-flex align-items-start mb-3">
+                            <img src="image/tick.png" alt="tick" class="me-3" style="max-width:25px;">
+                            <span>Automatische Generierung von Sonderbelegen:<br>Startbeleg (Initialisierung), Nullbeleg
+                                (monatlich), Stornobeleg (Stornierung).</span>
+                        </li>
+                        <li class="d-flex align-items-start mb-3">
+                            <img src="image/tick.png" alt="tick" class="me-3" style="max-width:25px;">
+                            <span>Speichern & exportieren Sie Transaktionsprotokolle<br>(Datenerfassungsprotokoll) für Prüfungszwecke.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-5 d-flex justify-content-center">
+                    <img src="image/banner2.png" alt="Support Team" class="img-fluid rounded-4" style="max-width:100%;">
+                </div>
+            </div>
+            <div class="d-none d-md-block position-absolute"
+                style="left:-80px;top:180px;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#51cda6 0%,#90e0ef 100%);box-shadow:0 2px 8px rgba(0,0,0,0.12);">
+            </div>
+            <div class="d-none d-md-block position-absolute"
+                style="left:-40px;bottom:-50px;width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#51cda6 0%,#90e0ef 100%);box-shadow:0 2px 8px rgba(0,0,0,0.12);">
+            </div>
+        </div>
+    </section>
+
+    <section id="support-demo" class="bg-white py-5">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-12">
+                    <div class="row g-0 align-items-center bg-light rounded-4 shadow p-4">
+                        <!-- Left: Illustration -->
+                        <div class="col-12 col-lg-6 d-flex justify-content-center mb-4 mb-lg-0">
+                            <img src="image/banner3.png" alt="Support Illustration" class="img-fluid rounded-4 w-100"
+                                style="max-width:591px;">
+                        </div>
+                        <!-- Right: Text & Contact -->
+                        <div class="col-12 col-lg-6">
+                            <div class="border-top border-4 border-success mb-3" style="width:120px;"></div>
+                            <h2 class="fw-bold mb-3" style="font-size:2.5rem; color:#222;">
+                                Kostenlose <span style="color:#51cda6;">Videotutorials</span>
+                            </h2>
+                            <p class="text-secondary fs-5 mb-4">
+                                Wir bieten Ihnen kostenlose Videotutorials zu allen Funktionen des Moduls an.
+                            </p>
+                            <div class="d-flex flex-wrap gap-3 mb-3">
+                                <a href="https://mpi-erp.at" target="_blank"
+                                    class="btn btn-light fw-semibold rounded-pill shadow-sm d-flex align-items-center gap-2 px-4 py-2">
+                                    <i class="fa fa-globe" style="color:#51cda6; font-size:1.2rem;"></i>
+                                    https://mpi-erp.at
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-8">
+                <div class=" p-4">
+                    <div class="text-center mb-4">
+                        <div class="mx-auto mb-4"
+                            style="width:260px; height:6px; background:linear-gradient(90deg,#51cda6 0%,#90e0ef 100%); border-radius:3px;">
+                        </div>
+                        <span class="fw-bold"
+                            style="font-size:3rem; color:#222; font-family:'Inter', Arial, sans-serif;">
+                            Brauchen Sie <span style="color:#51cda6;">Hilfe?</span>
+                        </span>
+                    </div>
+                    <p class="text-secondary fs-4 mb-4 text-center">
+                        Sie können hier sofort die Antwort finden, die Sie brauchen, wenn<br>Sie nach einer schnellen Lösung suchen.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="contact-demo" class="mb-5">
+        <div class="container position-relative">
+            <div class="row align-items-center">
+                <div class="col-12">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item rounded-4 border border-secondary-subtle mb-4"
+                            style="background-color: #f9fbfa;">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold px-4 py-3" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#faqCollapse1"
+                                    style="background-color: #f9fbfa; color: #60727a; font-size:1.5rem; border-radius: 1rem;">
+                                    Was ist die RKSV und wer ist davon betroffen?
+                                </button>
+                            </h2>
+                            <div id="faqCollapse1" class="accordion-collapse collapse">
+                                <div class="accordion-body px-4 py-3"
+                                    style="color:#60727a; font-size:1.2rem; background-color: #f9fbfa;">
+                                    Die RKSV (Registrierkassensicherheitsverordnung) ist eine österreichische Verordnung, die seit 1. April 2017 in Kraft ist. Sie betrifft alle Unternehmen, die Barumsätze tätigen und bestimmte Umsatzgrenzen überschreiten. Das Ziel ist die Verhinderung von Manipulationen und Steuerbetrug durch technische Sicherheitseinrichtungen in Registrierkassen.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item rounded-4 border border-secondary-subtle mb-4"
+                            style="background-color: #f9fbfa;">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold px-4 py-3" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#faqCollapse2"
+                                    style="background-color: #f9fbfa; color: #60727a; font-size:1.5rem; border-radius: 1rem;">
+                                    Welche technischen Anforderungen stellt die RKSV?
+                                </button>
+                            </h2>
+                            <div id="faqCollapse2" class="accordion-collapse collapse">
+                                <div class="accordion-body px-4 py-3"
+                                    style="color:#60727a; font-size:1.2rem; background-color: #f9fbfa;">
+                                    Die RKSV verlangt eine technische Sicherheitseinrichtung (TSE), die jede Transaktion digital signiert. Zusätzlich müssen spezielle Belege (Startbeleg, Nullbeleg, Stornobeleg) erstellt, QR-Codes gedruckt und Datenexporte (DEP7) für das Finanzamt erstellt werden. Alle Daten müssen revisionssicher für mindestens 10 Jahre gespeichert werden.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item rounded-4 border border-secondary-subtle mb-4"
+                            style="background-color: #f9fbfa;">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold px-4 py-3" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#faqCollapse3"
+                                    style="background-color: #f9fbfa; color: #60727a; font-size:1.5rem; border-radius: 1rem;">
+                                    Welche Strafen drohen bei Nichteinhaltung der RKSV?
+                                </button>
+                            </h2>
+                            <div id="faqCollapse3" class="accordion-collapse collapse">
+                                <div class="accordion-body px-4 py-3"
+                                    style="color:#60727a; font-size:1.2rem; background-color: #f9fbfa;">
+                                    Bei Verstößen gegen die RKSV können empfindliche Geldstrafen von bis zu 25.000 Euro verhängt werden. Zusätzlich drohen steuerliche Nachteile, da nicht konforme Belege nicht als steuerlich relevant anerkannt werden. Bei wiederholten Verstößen können auch höhere Strafen und weitere rechtliche Konsequenzen folgen.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item rounded-4 border border-secondary-subtle mb-4"
+                            style="background-color: #f9fbfa;">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold px-4 py-3" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#faqCollapse4"
+                                    style="background-color: #f9fbfa; color: #60727a; font-size:1.5rem; border-radius: 1rem;">
+                                    Wie funktioniert die Anmeldung beim Finanzamt?
+                                </button>
+                            </h2>
+                            <div id="faqCollapse4" class="accordion-collapse collapse">
+                                <div class="accordion-body px-4 py-3"
+                                    style="color:#60727a; font-size:1.2rem; background-color: #f9fbfa;">
+                                    Die Registrierkasse muss über das FinanzOnline-Portal des Finanzministeriums angemeldet werden. Dabei sind spezifische Daten der Kasse und der technischen Sicherheitseinrichtung zu übermitteln. Das Modul unterstützt Sie bei der korrekten Datenübertragung und automatischen Meldung an die Behörden.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item rounded-4 border border-secondary-subtle mb-4"
+                            style="background-color: #f9fbfa;">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold px-4 py-3" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#faqCollapse5"
+                                    style="background-color: #f9fbfa; color: #60727a; font-size:1.5rem; border-radius: 1rem;">
+                                    Was ist ein DEP7-Export und wann wird er benötigt?
+                                </button>
+                            </h2>
+                            <div id="faqCollapse5" class="accordion-collapse collapse">
+                                <div class="accordion-body px-4 py-3"
+                                    style="color:#60727a; font-size:1.2rem; background-color: #f9fbfa;">
+                                    Der DEP7-Export (Datenerfassungsprotokoll) ist ein spezieller Datenexport, der auf Verlangen des Finanzamts vorgelegt werden muss. Er enthält detaillierte Informationen über alle in der Registrierkasse erfassten Umsätze und muss mindestens vierteljährlich erstellt werden. Unser Modul erstellt diese Exporte automatisch.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item rounded-4 border border-secondary-subtle mb-4"
+                            style="background-color: #f9fbfa;">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold px-4 py-3" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#faqCollapse6"
+                                    style="background-color: #f9fbfa; color: #60727a; font-size:1.5rem; border-radius: 1rem;">
+                                    Gibt es Ausnahmen von der RKSV-Pflicht?
+                                </button>
+                            </h2>
+                            <div id="faqCollapse6" class="accordion-collapse collapse">
+                                <div class="accordion-body px-4 py-3"
+                                    style="color:#60727a; font-size:1.2rem; background-color: #f9fbfa;">
+                                    Ja, bestimmte Unternehmen können von der Registrierkassenpflicht ausgenommen sein, z.B. bei sehr geringen Barumsätzen oder in speziellen Branchen. Die genauen Kriterien sind in der Verordnung festgelegt. Es wird empfohlen, die individuelle Situation mit einem Steuerberater zu klären.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Hình tròn gradient -->
+            <div class="position-absolute"
+                style="right:-90px;bottom:-20px;width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#51cda6 0%,#90e0ef 100%);box-shadow:0 2px 8px rgba(0,0,0,0.12);">
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        document.querySelectorAll('.faq-toggle').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const item = this.closest('.faq-item');
+                item.classList.toggle('active');
+            });
+        });
+
+        // Demo tab logic
+        const tabs = document.querySelectorAll('.demo-tab');
+        const demoImg = document.getElementById('demo-img');
+        const demoDesc = document.getElementById('demo-desc');
+
+        const tabtitle = [
+            'Verkaufsprozess & Elektronische Signatur',
+            'Datenexport & Speicherung',
+            'Kassen-Zertifizierung einrichten & aktivieren'
+        ];
+
+        const tabContents1 = [
+            {
+                img: 'image/dep_image1.png',
+                desc: 'Erstellen Sie einen Auftrag in der Kasse wie gewohnt.'
+            },
+            {
+                img: 'image/dep_image2.png',
+                desc: 'Bei der Zahlung sendet die Kasse Transaktionsdaten (Betrag, Steuer, Zeit, Rechnungsnummer, Umsatzzähler-Nummer…) an den RKSV-Elektronik-Signatur-Service.<br>Rückgabe des Signatur-Services:<br>Elektronischer Signatur-String.<br>QR-Code mit Transaktionsinformationen.'
+            },
+            {
+                img: 'image/dep_image3.png',
+                desc: 'Kasse:<br>Rechnung mit Signatur/QR-Code drucken.<br>Signatur und Transaktionsdaten im Backend für Prüfungszwecke speichern.'
+            }
+        ];
+
+        const tabContents2 = [
+            {
+                img: 'image/dep2_image1.png',
+                desc: 'Nach Gesetz muss das Datenerfassungsprotokoll (Datenprotokoll) mindestens vierteljährlich exportiert und gespeichert werden.'
+            },
+            {
+                img: 'image/dep2_image2.png',
+                desc: 'Das Modul ermöglicht den Export dieser Datei für jede Kasse zur Speicherung oder zum Versand an die Steuerbehörden.'
+            }
+        ];
+
+        const tabContents3 = [
+            {
+                img: 'image/dep3_image1.png',
+                desc: 'Unternehmenskonfiguration aufrufen<br>Gehen Sie zu Einstellungen → Benutzer & Unternehmen → Unternehmen.<br>Wählen Sie das Unternehmen aus, das Sie konfigurieren möchten (z.B. Bekleidungsgeschäft).<br>Kassen-Zertifizierungs-Tab öffnen<br>Klicken Sie im Unternehmensprofil auf den Kassen-Zertifizierungs-Tab.'
+            },
+            {
+                img: 'image/dep3_image2.png',
+                desc: 'Sie sehen wichtige Felder:<br>Admin-Modul-URL – der Endpunkt Ihres Fiskalisierungsdienstes (z.B. Fiskaly).<br>API-Schlüssel – der Authentifizierungsschlüssel Ihres Anbieters.<br>Kassen-Zertifizierung aktivieren – Button zum Starten des Zertifizierungsprozesses.<br>Abonnement-Status – zeigt an, ob Ihr Abonnement aktiv ist.<br>Organisations-Status – zeigt an, ob Ihre Organisation im System des Anbieters erstellt wurde.'
+            },
+            {
+                img: 'image/dep3_image3.png',
+                desc: 'Kassen-Zertifizierung aktivieren:<br>Klicken Sie auf "Kassen-Zertifizierung aktivieren".<br>Das System wird:<br>1. Ihre Organisation im System des Anbieters erstellen (falls noch nicht erstellt).<br>2. Ihre Kasse mit einem TSS (Technisches Sicherheitssystem) in der Cloud verknüpfen.<br>3. Abonnement-Status und Organisations-Status aktualisieren.<br>Organisation erstellen: Klicken Sie, um eine Organisation zu erstellen und den RKSV-Compliance-Prozess zu beginnen.'
+            },
+            {
+                img: 'image/dep3_image4.png',
+                desc: 'Organisation erstellt, FON erfolgreich authentifiziert, Das System ist bereit, gültige Rechnungen mit QR-<br>Code und digitaler Signatur gemäß RKSV-Standard auszustellen.'
+            }
+        ];
+
+        function renderTabContent(contents, idx) {
+            document.getElementById('tab-title').textContent = tabtitle[idx];
+            const container = document.getElementById('demo-content');
+            container.innerHTML = contents.map(item => `
+                <div class="mb-4">
+                    <p style="font-size:0.95rem;color:#5A6A72;">${item.desc || ''}</p>
+                    ${item.img ? `<img src="${item.img}" class="img-fluid rounded shadow mb-2" style="max-width:100%;height:auto;">` : ''}
+                </div>
+            `).join('');
+        }
+
+        tabs.forEach((tab, idx) => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                if (idx === 0) {
+                    renderTabContent(tabContents1, 0);
+                } else if (idx === 1) {
+                    renderTabContent(tabContents2, 1);
+                } else if (idx === 2) {
+                    renderTabContent(tabContents3, 2);
+                }
+            });
+        });
+
+        // Mặc định hiển thị tab 1
+        renderTabContent(tabContents1, 0);
+    </script>
+</body>
+
+</html>
