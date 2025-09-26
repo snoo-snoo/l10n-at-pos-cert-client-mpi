@@ -5,16 +5,8 @@
     'version': '18.0.1.0.0',
     'category': 'Point of Sale',
     'summary': 'RKSV compliance for Austrian Point of Sale',
-    'description': """
-        This module extends the Point of Sale receipt template to include
-        RKSV (Austrian Cash Register Security Regulation) compliance data.
-        
-        Features:
-        - Extended receipt template with RKSV compliance section
-        - Integration with pos.receipt model for response data
-        - Proper styling for receipt printing
-        - Support for offline/error states
-    """,
+    'description': 'static/description/home.html',
+    'images': ['static/description/icon.png'],
     'author': 'Ngyuen Tran and Michael Plöckinger',
     'website': 'https://www.mpi-erp.at',
     'repository': 'ssh://git@github.com/snoo-snoo/mpi-l10n-at-pos-cert-client.git#18.0',
