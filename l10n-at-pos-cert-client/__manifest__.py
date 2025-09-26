@@ -2,7 +2,7 @@
 
 {
     'name': 'Austrian POS RKSV Compliance Client',
-    'version': '18.0.1.0',
+    'version': '18.0',
     'category': 'Point of Sale',
     'summary': 'RKSV compliance for Austrian Point of Sale',
     'description': """
