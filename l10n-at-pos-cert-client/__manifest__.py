@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
 {
-    'name': 'Austrian POS RKSV Compliance Client',
+    'name': 'RKSV-Modul für Österreichische Registriekassen',
     'version': '18.0.1.0.0',
     'category': 'Point of Sale',
-    'summary': 'RKSV compliance for Austrian Point of Sale',
+    'summary': 'RKSV-Modul für Österreichische Registriekassen',
     'description': 'static/description/home.html',
     'images': ['static/description/icon.png'],
     'author': 'MPI GmbH',
