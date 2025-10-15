@@ -2,7 +2,7 @@
 
 {
     'name': 'RKSV-Modul für österreichische Registrierkassen',
-    'version': '18.0.1.0.0',
+    'version': '19.0.1.0.0',
     'category': 'Point of Sale',
     'summary': 'RKSV-Modul für österreichische Registrierkassen',
     'description': """
