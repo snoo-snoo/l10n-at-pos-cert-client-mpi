@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MHI ReCEV Compliant Registration Platform</title>
+
+    <!-- Bootstrap 4 CSS (Odoo compatible) -->
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Odoo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+    <link type="text/css" rel="stylesheet"
+          href="//apps.odoocdn.com/web/content/7646917-3314048/1/web.assets_frontend.css">
+</head>
+
+<body>
+<section>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg bg-white py-3 ">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="image/logo_app.png" alt="Logo" height="60" width="135" class="img-fluid">
+            </a>
+            <a href="mailto:office@mpi-erp.at"
+                class="btn btn-contact font-weight-bold px-4 py-2 rounded"
+                style="background-color: #51CDA6; color:#ffffff; font-size: 16px;">
+                Contact Us
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 text-lg-left mb-4 mb-lg-0">
+                    <h1 class="display-4 font-weight-bold mb-4"
+                        style="color: #3aafa9; font-family: 'Inter'; font-weight: 700; font-size: 58px;">
+                        MRI RKSV Compliant<br>
+                        Registrierkasse<br>
+                        (POS)
+                    </h1>
+                    <p class="mb-4"
+                        style="color: #5A6A72; font-family: 'Inter'; font-weight: 400; font-size: 26px;">
+                        RKSV Compliance on your POS &amp; Configuration<br>
+                        Options by Using Fiskaly API
+                    </p>
+                    <a href="mailto:office@mpi-erp.at"
+                        class="btn btn-lg font-weight-bold rounded px-4 py-2"
+                        style="background-color: #e75664; color: #ffffff; font-family: 'Inter';">
+                        Watch A Demo
+                    </a>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="image/banner.png" alt="POS Banner" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Module Outstanding Features -->
+    <section class="py-5 bg-gradient-section position-relative">
+        <img src="image/background_feature.png" alt="Feature" class="h-100 w-100 position-absolute img-fluid"
+            style="border-radius: clamp(0.237rem, 1.52vw, 20px);"
+            loading="lazy">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-4 font-weight-bold text-dark"
+                    style="font-family: 'Inter'; font-weight: 700;">
+                    <b>Module Outstanding<span style="color:#3aafa9;"> Feature</span></b>
+                </h2>
+                <div class="mx-auto mt-3" style="width:133px;height:2px;background:#5A6A72;"></div>
+            </div>
+
+            <div class="row" style="font-family: 'Inter';">
+                <div class="col-md-6 mb-4">
+                    <div class="text-center p-4">
+                        <img src="image/setting_image.png" alt="Feature Icon" class="mb-4" style="width:120px;">
+                        <h3 class="h3 font-weight-bold mb-3" style="font-weight: 700; font-size: 32px">RKSV-Compliant POS Invoices</h3>
+                        <p class="text-muted" style="font-weight: 500; font-size: 18px">Electronic POS/transaction invoice characters according to RKSV standards.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="text-center p-4">
+                        <img src="image/setting_image.png" alt="Feature Icon" class="mb-4" style="width:120px;">
+                        <h3 class="h3 font-weight-bold mb-3" style="font-weight: 700; font-size: 32px">Legal QR Code &amp; Signature Printing</h3>
+                        <p class="text-muted" style="font-weight: 500; font-size: 18px">Print QR codes or signature strings on invoices to meet legal
+                            requirements.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="text-center p-4">
+                        <img src="image/setting_image.png" alt="Feature Icon" class="mb-4" style="width:120px;">
+                        <h3 class="h3 font-weight-bold mb-3" style="font-weight: 700; font-size: 32px">Austrian POS Compliance Receipts</h3>
+                        <p class="text-muted" style="font-weight: 500; font-size: 18px">Only for companies with POS which are required by Austrian law to have
+                            this qr printed on their receipts.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="text-center p-4">
+                        <img src="image/setting_image.png" alt="Feature Icon" class="mb-4" style="width:120px;">
+                        <h3 class="h3 font-weight-bold mb-3" style="font-weight: 700; font-size: 32px">Transaction Log Storage &amp; Export (DEP)</h3>
+                        <p class="text-muted" style="font-weight: 500; font-size: 18px">Store &amp; export transaction logs (Datenerfassungsprotokoll) for
+                            auditing purposes.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="text-center p-4">
+                        <img src="image/setting_image.png" alt="Feature Icon" class="mb-4" style="width:120px;">
+                        <h3 class="h3 font-weight-bold mb-3" style="font-weight: 700; font-size: 32px">Automated Special Receipts (Start, Null, Cancel)</h3>
+                        <p class="text-muted" style="font-weight: 500; font-size: 18px">Automatically generate special receipts: Startbeleg (initialization),
+                            Nullbeleg (monthly), Stornobeleg (cancellation).</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="text-center p-4">
+                        <img src="image/setting_image.png" alt="Feature Icon" class="mb-4" style="width:120px;">
+                        <h3 class="h3 font-weight-bold mb-3" style="font-weight: 700; font-size: 32px">Cloud Integration</h3>
+                        <p class="text-muted" style="font-weight: 500; font-size: 18px">Technical Implementation with Fiskaly API: The Fiskaly Cloud TSS replaces
+                            local signature hardware and handles RKSV signing in the cloud.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Decorative element -->
+        <div class="decorative-circle d-none d-md-block" style="
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #51cda6 0%, #90e0ef 100%);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+            left: -50px; 
+            bottom: 500px;"> 
+        </div>
+    </section>
+
+    <!-- Features Details -->
+    <section class="py-5 position-relative">
+        <div class="container">
+            <div class="text-center mb-5">
+                <div class="mx-auto mb-4" style="width:266px; height:5px; background-color: #51cda6;"></div>
+                <img src="image/deco-img-arrow.png" alt="" class="position-absolute d-none d-lg-block"
+                    style="top:40px;left:150px;height:208px;z-index:1;">
+                <img src="image/deco-img-arrow2.png" alt="" class="position-absolute d-none d-lg-block"
+                    style="top:40px;right:0;height:282px;z-index:1;">
+                <h2 class="display-4 font-weight-bold"
+                    style="font-family:'Inter'; font-weight: 700; font-size:40px; color:#51cda6;">
+                    <b>Features<span class="text-dark"> Details</span></b>
+                </h2>
+                <div class="tabs-container"
+                     style="width: 100%;  margin-bottom: clamp(0.9rem, 5.76vw, 76px);">
+                    <div role="tablist" class="nav nav-tabs justify-content-center " data-tabs="tabs"
+                         style="border:none; background-color: transparent; margin:0 auto; padding:0; color: #51CDA6">
+                        <div class="nav-item"
+                            style="height: clamp(1.05rem, 2.65vw, 35px);background-color: #E8EFF2; margin-right: clamp(0.118rem, 0.76vw, 10px);">
+                            <a href="#tab_1" data-bs-toggle="tab" aria-expanded="true"
+                                class="show nav-link active d-flex align-items-center justify-content-center"
+                                style="font-family:'Inter'; font-weight: 400; font-size: 18px; border:none; color: #2B2B2B">
+                                RKSV Signature
+                            </a>
+                        </div>
+                        <div class="nav-item"
+                            style="height: clamp(1.05rem, 2.65vw, 35px);background-color: #E8EFF2; margin-right: clamp(0.118rem, 0.76vw, 10px);">
+                            <a href="#tab_2" data-bs-toggle="tab" aria-expanded="true"
+                                class="show nav-link active d-flex align-items-center justify-content-center"
+                                style="font-family:'Inter'; font-weight: 400; font-size: 18px; border:none; color: #2B2B2B">
+                                Data Storage
+                            </a>
+                        </div>
+                        <div class="nav-item"
+                            style="height: clamp(1.05rem, 2.65vw, 35px);background-color: #E8EFF2; margin-right: clamp(0.118rem, 0.76vw, 10px);">
+                            <a href="#tab_3" data-bs-toggle="tab" aria-expanded="true"
+                                class="show nav-link active d-flex align-items-center justify-content-center"
+                                style="font-family:'Inter'; font-weight: 400; font-size: 18px; border:none; color: #2B2B2B"> 
+                                Setup POS Cert
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div id="tab_1"
+                        class="container tab-pane active position-relative overflow-hidden"
+                        style="background-color: transparent;">
+
+                        <div class="container position-relative overflow-hidden">
+                            <!-- Content Layer -->
+                            <div class="row text-center position-relative zn-1 justify-content-center d-flex "
+                                    style="padding-top: clamp(1.039rem, 4.17vw, 55px);">
+                                <div class="row justify-content-center">
+                                    <div class="col-12">
+                                        <div class="row justify-content-center">
+                                            <div class="col-12 "
+                                                style=" margin-bottom: clamp(0.661rem, 4.24vw, 56px);">
+                                                <h3 class="font-weight-bold" 
+                                                    style="font-family:'Inter'; font-weight: 700; font-size: 32px; color: #1E2A32">
+                                                    Sales Process & Electronic Signature
+                                                </h3>
+                                            </div>
+                                            <div class="col-12 "
+                                                style=" margin-bottom: clamp(0.661rem, 4.24vw, 56px);">
+                                                <p style="font-family: 'Inter'; font-size: 18px; color:#5A6A72">Create an order in POS as usual.</p>
+                                                <img src="./image/dep_image1.png"
+                                                    style="width: 100%; border-radius: clamp(0.178rem, 1.14vw, 15px); margin: 0 auto; text-align: center;"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-12">
+                                        <div class="row justify-content-center">
+                                            <div class="col-12 "
+                                                style=" margin-bottom: clamp(0.661rem, 4.24vw, 56px);">
+                                                <p style="font-family: 'Inter'; font-size: 18px; color:#5A6A72">
+                                                    When paying, POS sends transaction data (amount, tax, time, invoice number, revenue counter number…) 
+                                                    to RKSV electronic signature service.
+                                                    <br>
+                                                    Return signature service:
+                                                    <br>
+                                                    Electronic signature string.
+                                                    <br>
+                                                    QR code containing transaction information.</p>
+                                                <img src="./image/dep_image2.png"
+                                                    style="width: 100%; border-radius: clamp(0.178rem, 1.14vw, 15px); margin: 0 auto; text-align: center;"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-12">
+                                        <div class="row justify-content-center">
+                                            <div class="col-12 "
+                                                style=" margin-bottom: clamp(0.661rem, 4.24vw, 56px);">
+                                                <p style="font-family: 'Inter'; font-size: 18px; color:#5A6A72">
+                                                    POS:
+                                                    <br>
+                                                    Print invoice with signature/QR code.
+                                                    <br>
+                                                    Save signature and transaction data to backend for auditing.
+                                                </p>
+                                                <img src="./image/dep_image3.png"
+                                                    style="width: 100%; border-radius: clamp(0.178rem, 1.14vw, 15px); margin: 0 auto; text-align: center;"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab_2" class="container tab-pane fade"
+                        style="text-align: center !important;">
+
+                        <div class="container position-relative overflow-hidden">
+                            <!-- Content Layer -->
+                            <div class="row text-center position-relative zn-1 justify-content-center d-flex "
+                                    style="padding-top: clamp(1.039rem, 4.17vw, 55px);">
+                                <div class="row justify-content-center">
+                                    <div class="col-12">
+                                        <div class="row justify-content-center">
+                                            <div class="col-12 "
+                                                style=" margin-bottom: clamp(0.661rem, 4.24vw, 56px);">
+                                                <h3 class="font-weight-bold" 
+                                                    style="font-family:'Inter'; font-weight: 700; font-size: 32px; color: #1E2A32">
+                                                    Data Export & Storage
+                                                </h3>
+                                            </div>
+                                            <div class="col-12 "
+                                                style=" margin-bottom: clamp(0.661rem, 4.24vw, 56px);">
+                                                <p style="font-family: 'Inter'; font-size: 18px; color:#5A6A72">By law, Datenerfassungsprotokoll (data log) must be exported and stored at least quarterly.</p>
+                                                <img src="./image/dep2_image1.png"
+                                                    style="width: 100%; border-radius: clamp(0.178rem, 1.14vw, 15px); margin: 0 auto; text-align: center;"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-12">
+                                        <div class="row justify-content-center">
+                                            <div class="col-12 "
+                                                style=" margin-bottom: clamp(0.661rem, 4.24vw, 56px);">
+                                                <p style="font-family: 'Inter'; font-size: 18px; color:#5A6A72">
+                                                    The module allows exporting this file for each POS for storage or sending to the tax authorities.</p>
+                                                <img src="./image/dep2_image2.png"
+                                                    style="width: 100%; border-radius: clamp(0.178rem, 1.14vw, 15px); margin: 0 auto; text-align: center;"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab_3" class="container tab-pane fade"
+                        style="text-align: center !important;">
+
+                        <div class="container position-relative overflow-hidden">
+                            <!-- Content Layer -->
+                            <div class="row text-center position-relative zn-1 justify-content-center d-flex "
+                                    style="padding-top: clamp(1.039rem, 4.17vw, 55px);">
+                                <div class="row justify-content-center">
+                                    <div class="col-12">
+                                        <div class="row justify-content-center">
+                                            <div class="col-12 "
+                                                style=" margin-bottom: clamp(0.661rem, 4.24vw, 56px);">
+                                                <h3 class="font-weight-bold" 
+                                                    style="font-family:'Inter'; font-weight: 700; font-size: 32px; color: #1E2A32">
+                                                    Set Up & Activate POS Certification
+                                                </h3>
+                                            </div>
+                                            <div class="col-12 "
+                                                style=" margin-bottom: clamp(0.661rem, 4.24vw, 56px);">
+                                                <p style="font-family: 'Inter'; font-size: 18px; color:#5A6A72">
+                                                    Access Company Configuration
+                                                    <br>
+                                                    Go to Settings → Users & Companies → Companies.
+                                                    <br>
+                                                    Select the company you want to configure (e.g., Clothing Store)
+                                                    <br>
+                                                    Open the POS Certification Tab>
+                                                    <br>
+                                                    Inside the company profile, click on the POS Certification tab.
+                                                </p>
+                                                <img src="./image/dep3_image1.png"
+                                                    style="width: 100%; border-radius: clamp(0.178rem, 1.14vw, 15px); margin: 0 auto; text-align: center;"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-12">
+                                        <div class="row justify-content-center">
+                                            <div class="col-12 "
+                                                style=" margin-bottom: clamp(0.661rem, 4.24vw, 56px);">
+                                                <p style="font-family: 'Inter'; font-size: 18px; color:#5A6A72">
+                                                    You will see key fields:
+                                                    <br>
+                                                    Admin Module URL – the endpoint provided by your fiscalization service (e.g., Fiskaly).
+                                                    <br>
+                                                    API Key – the authentication key from your provider.
+                                                    <br>
+                                                    Activate POS Certification – button to start the certification process.
+                                                    <br>
+                                                    Subscription Status – shows whether your subscription is active. 
+                                                    <br>
+                                                    Organization Status – shows whether your organization is created in the provider’s system.
+                                                </p>
+                                                <img src="./image/dep3_image2.png"
+                                                    style="width: 100%; border-radius: clamp(0.178rem, 1.14vw, 15px); margin: 0 auto; text-align: center;"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-12">
+                                        <div class="row justify-content-center">
+                                            <div class="col-12 "
+                                                style=" margin-bottom: clamp(0.661rem, 4.24vw, 56px);">
+                                                <p style="font-family: 'Inter'; font-size: 18px; color:#5A6A72">
+                                                    Activate POS Certification:
+                                                    <br>
+                                                    Click Activate POS Certification.
+                                                    <br>
+                                                    The system will:
+                                                    <br>
+                                                        1. Create your Organization in the provider’s system (if not already created).
+                                                    <br>
+                                                        2. Link your POS to a TSS (Technical Security System) in the cloud.
+                                                    <br>
+                                                        3. Update Subscription Status and Organization Status.
+                                                    <br>
+                                                    Create Organization: Click to create an Organization and begin the RKSV compliance process.
+                                                </p>
+                                                <img src="./image/dep3_image3.png"
+                                                    style="width: 100%; border-radius: clamp(0.178rem, 1.14vw, 15px); margin: 0 auto; text-align: center;"/>
+                                                <img src="./image/dep3_image4.png"
+                                                    style="width: 100%; border-radius: clamp(0.178rem, 1.14vw, 15px); margin: 0 auto; text-align: center;"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Decorative circle -->
+        <div class="decorative-circle d-none d-md-block" style="right:50px;bottom:20px;"></div>
+    </section>
+
+    <!-- Book Demo Title -->
+    <section class="py-3">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="display-4 font-weight-bold"
+                    style="font-family: 'Inter'; font-weight: 700; font-size: 40px;">
+                    Book Your <span style="color:#51cda6;">Personalised Demo</span> Right Away
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- QR Code Cards Section -->
+    <section class="py-5">
+        <div class="container position-relative">
+            <div class="row justify-content-center">
+                <div class="col-md-4 mb-4 d-flex justify-content-center">
+                    <div class="card h-100 rounded-lg" style="background:#e8eff2; min-width:260px; max-width:368px;">
+                        <div class="card-body d-flex flex-column align-items-center justify-content-center p-4">
+                            <img src="image/qr_code.png" alt="QR Code" class="img-fluid mb-4">
+                            <div class="d-flex align-items-center justify-content-center mt-4">
+                                <img src="image/email_icon.png" alt="email icon" style="width:26px; height:26px;"
+                                    class="mr-2">
+                                <p class="font-weight-bold mb-0"
+                                    style="font-family: 'Inter'; font-weight: 700; font-size: 24px; color: #1E2A32;">
+                                    Connect to Email
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 d-flex justify-content-center">
+                    <div class="card h-100 rounded-lg" style="background:#e8eff2; min-width:260px; max-width:368px;">
+                        <div class="card-body d-flex flex-column align-items-center justify-content-center p-4">
+                            <img src="image/qr_code.png" alt="QR Code" class="img-fluid mb-4">
+                            <div class="d-flex align-items-center justify-content-center mt-4">
+                                <img src="image/phone_icon.png" alt="phone icon" style="width:26px; height:26px;"
+                                    class="mr-2">
+                                <p class="font-weight-bold mb-0"
+                                    style="font-family: 'Inter'; font-weight: 700; font-size: 24px; color: #1E2A32;">
+                                    Connect to Phone
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 d-flex justify-content-center">
+                    <div class="card h-100 rounded-lg" style="background:#e8eff2; min-width:260px; max-width:368px;">
+                        <div class="card-body d-flex flex-column align-items-center justify-content-center p-4">
+                            <img src="image/qr_code.png" alt="QR Code" class="img-fluid mb-4">
+                            <div class="d-flex align-items-center justify-content-center mt-4">
+                                <img src="image/web_icon.png" alt="web icon" style="width:26px; height:26px;"
+                                    class="mr-2">
+                                <p class="font-weight-bold mb-0"
+                                    style="font-family: 'Inter'; font-weight: 700; font-size: 24px; color: #1E2A32;">
+                                    Connect to Website
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decorative circle -->
+            <div class="decorative-circle d-none d-md-block" style="left:10px;top:-140px;"></div>
+        </div>
+    </section>
+
+    <!-- Contact Demo Section -->
+    <section class="py-5 bg-white position-relative" id="contact-demo">
+        <div class="decorative-circle d-none d-md-block" 
+                style="width: 52px;
+                    height: 52px;
+                    border-radius: 50%;
+                    background: linear-gradient(135deg, #51cda6 0%, #90e0ef 100%);
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+                    left: -10px; 
+                    bottom: -300px;"> 
+        </div>
+        <div class="decorative-circle d-none d-md-block" 
+                style="width: 72px;
+                    height: 72px;
+                    border-radius: 50%;
+                    background: linear-gradient(135deg, #51cda6 0%, #90e0ef 100%);
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+                    left: -10px; 
+                    bottom: -600px;"> 
+        </div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <div class="mb-4" style="width:266px; height:5px; background-color: #51cda6;"></div>
+                    <h2 class="display-4 font-weight-bold"
+                        style="color: #1E2A32; font-family: 'Inter'; font-weight: 700; font-size: 40px;">
+                        Contact now to get FREE DEMO<br>
+                        by <span style="color:#51cda6;">MPI Odoo Solutions</span>
+                    </h2>
+                    <p class="lead mt-4 mb-4"
+                        style="color: #5A6A72; font-family: 'Inter'; font-weight: 700; font-size: 18px;">
+                        We do offer DEMO Module to you before you decide to purchase. Please contact us by whatsapp or
+                        email below:
+                    </p>
+                    <div class="mb-4">
+                        <a href="tel:+436609240068" class="btn btn-lg mr-3 mb-2 font-weight-bold rounded"
+                            style="background-color: #51cda6; color: #fff;">
+                            +436609240068
+                        </a>
+                        <a href="mailto:support@mhirecev.com"
+                            class="btn btn-lg mb-2 font-weight-bold rounded"
+                            style="border-color:#51cda6; color: #51cda6;">
+                            Mail Us
+                        </a>
+                    </div>
+
+                    <ul class="list-unstyled mt-4">
+                        <li class="d-flex align-items-start mb-3">
+                            <img src="image/tick.png" alt="tick" class="mr-3" style="max-width:25px;">
+                            <span style="color: #000000; font-family: 'Inter'; font-weight: 400; font-size: 18px;">
+                                Electronic POS/transaction invoice<br>characters according to RKSV standards.</span>
+                        </li>
+                        <li class="d-flex align-items-start mb-3">
+                            <img src="image/tick.png" alt="tick" class="mr-3" style="max-width:25px;">
+                            <span style="color: #000000; font-family: 'Inter'; font-weight: 400; font-size: 18px;">
+                                Print QR codes or signature strings on invoices to meet legal requirements.</span>
+                        </li>
+                        <li class="d-flex align-items-start mb-3">
+                            <img src="image/tick.png" alt="tick" class="mr-3" style="max-width:25px;">
+                            <span style="color: #000000; font-family: 'Inter'; font-weight: 400; font-size: 18px;">
+                                Automatically generate special receipts:<br>Startbeleg (initialization), Nullbeleg
+                                (monthly), Stornobeleg (cancellation).</span>
+                        </li>
+                        <li class="d-flex align-items-start mb-3">
+                            <img src="image/tick.png" alt="tick" class="mr-3" style="max-width:25px;">
+                            <span style="color: #000000; font-family: 'Inter'; font-weight: 400; font-size: 18px;">
+                                Store &amp; export transaction logs<br>(Datenerfassungsprotokoll) for auditing
+                                purposes.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-5 d-flex justify-content-center">
+                    <img src="image/banner2.png" alt="Support Team" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="row align-items-center bg-light rounded p-4 shadow-sm">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="image/banner3.png" alt="Support Illustration" class="img-fluid rounded">
+                </div>
+                <div class="col-lg-6">
+                    <div class="mb-4" style="width:266px; height:5px; background-color: #51cda6;"></div>
+                    <h2 class="display-4 font-weight-bold"
+                        style="color: #1E2A32; font-family: 'Inter'; font-weight: 700; font-size: 40px;">
+                        Free <span style="color:#51cda6;">60 Days</span> Support
+                    </h2>
+                    <p class="lead mb-4"
+                        style="color: #5A6A72; font-family: 'Inter'; font-weight: 400; font-size: 18px;">
+                        MPI will provide <strong style="color: #1E2A32; font-weight: 700; font-size: 18px;">FREE</strong> 60-day support for any doubts, queries, and bug fixing or
+                        any types of issues related to this module.<br>
+                        This is applicable from the date of purchase.
+                    </p>
+                    <div class="mb-3">
+                        <a href="tel:+436609240068" class="btn btn-light mb-2 mr-2 rounded-pill shadow-sm"
+                            style="color: #5A6A72; font-family: 'Inter'; font-weight: 500; font-size: 12px;">
+                            <i class="fa fa-phone" style="color: #000000"></i> +436609240068
+                        </a>
+                        <a href="mailto:office@mpi-erp.at" class="btn btn-light mb-2 mr-2 rounded-pill shadow-sm"
+                            style="color: #5A6A72; font-family: 'Inter'; font-weight: 500; font-size: 12px;">
+                            <i class="fa fa-envelope" style="color: #000000"></i> office@mpi-erp.at
+                        </a>
+                        <a href="https://mpi-erp.at" target="_blank" class="btn btn-light mb-2 rounded-pill shadow-sm"
+                            style="color: #5A6A72; font-family: 'Inter'; font-weight: 500; font-size: 12px;">
+                            <i class="fa fa-globe" style="color: #000000"></i> https://mpi-erp.at
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Need Help Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <div class="mx-auto mb-4" style="width:266px; height:5px; background-color: #51cda6;"></div>
+                <h2 class="display-4 font-weight-bold"
+                    style="color: #1E2A32; font-family: 'Inter'; font-weight: 700; font-size: 40px;">
+                    Need <span style="color:#51cda6;">Help?</span>
+                </h2>
+                <p class="lead"
+                    style="color: #5A6A72; font-family: 'Inter'; font-weight: 400; font-size: 18px;">
+                    You can instantly find the answer you need here when<br>you're looking for a quick solution.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-5 position-relative">
+        <div class="container">
+            <div class="accordion" id="faqAccordion">
+                <!-- FAQ Item 1 -->
+                <div class="accordion-item"
+                    style="background-color: #F9FBFA; border: 1px; margin-bottom: clamp(0.118rem, 0.76vw, 10px);">
+                    <h2 class="accordion-header" id="heading1">
+                        <a class="accordion-button collapsed"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#heading1_ans"
+                        aria-expanded="false"
+                        aria-controls="heading1_ans"
+                        style="background-color: #F9FBFA !important; text-decoration: none !important; --bs-accordion-btn-icon-width: 1em;">
+                        <span class="font-weight-bold"
+                            style="color: #5A6A72; font-family: 'Inter'; font-weight: 700; font-size: 20px; line-height:100%; text-align:center; color:#5A6A72">Lorem ipsum dolor sit amet, consectetur adipiscing elit?</span>
+                        </a>
+                    </h2>
+                    <div id="heading1_ans"
+                        class="accordion-collapse collapse"
+                        data-bs-parent="#faqAccordion"
+                        aria-labelledby="heading1">
+                        <div class="accordion-body"
+                            style="color: #5A6A72; font-family: 'Inter'; font-weight: 700; font-size: 20px; line-height:100%; text-align:center; color:#5A6A72">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at dictum erat.
+                        </div>
+                    </div>
+                </div>
+                <!-- FAQ Item 2 -->
+                <div class="accordion-item"
+                    style="background-color: #F9FBFA; border: 1px; margin-bottom: clamp(0.118rem, 0.76vw, 10px);">
+                    <h2 class="accordion-header" id="heading2">
+                        <a class="accordion-button collapsed"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#heading2_ans"
+                        aria-expanded="false"
+                        aria-controls="heading2_ans"
+                        style="background-color: #F9FBFA !important; text-decoration: none !important; --bs-accordion-btn-icon-width: 1em;">
+                        <span class="font-weight-bold"
+                            style="color: #5A6A72; font-family: 'Inter'; font-weight: 700; font-size: 20px; line-height:100%; text-align:center; color:#5A6A72">Lorem ipsum dolor sit amet, consectetur adipiscing elit?</span>
+                        </a>
+                    </h2>
+                    <div id="heading2_ans"
+                        class="accordion-collapse collapse"
+                        data-bs-parent="#faqAccordion"
+                        aria-labelledby="heading2">
+                        <div class="accordion-body"
+                            style="color: #5A6A72; font-family: 'Inter'; font-weight: 700; font-size: 20px; line-height:100%; text-align:center; color:#5A6A72">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at dictum erat.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="accordion-item"
+                    style="background-color: #F9FBFA; border: 1px; margin-bottom: clamp(0.118rem, 0.76vw, 10px);">
+                    <h2 class="accordion-header" id="heading3">
+                        <a class="accordion-button collapsed"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#heading3_ans"
+                        aria-expanded="false"
+                        aria-controls="heading3_ans"
+                        style="background-color: #F9FBFA !important; text-decoration: none !important; --bs-accordion-btn-icon-width: 1em;">
+                        <span class="font-weight-bold"
+                            style="color: #5A6A72; font-family: 'Inter'; font-weight: 700; font-size: 20px; line-height:100%; text-align:center; color:#5A6A72">Lorem ipsum dolor sit amet, consectetur adipiscing elit?</span>
+                        </a>
+                    </h2>
+                    <div id="heading3_ans"
+                        class="accordion-collapse collapse"
+                        data-bs-parent="#faqAccordion"
+                        aria-labelledby="heading3">
+                        <div class="accordion-body"
+                            style="color: #5A6A72; font-family: 'Inter'; font-weight: 700; font-size: 20px; line-height:100%; text-align:center; color:#5A6A72">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at dictum erat.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="decorative-circle d-none d-md-block" 
+        style="width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #51cda6 0%, #90e0ef 100%);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+            left: 1400px;
+            bottom: 100px;"> 
+    </div>
+</section>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+            crossorigin="anonymous"></script>    
+</body>
+</html>
