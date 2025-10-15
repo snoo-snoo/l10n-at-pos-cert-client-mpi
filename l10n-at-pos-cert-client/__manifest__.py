@@ -17,7 +17,7 @@
         
         Das Modul erfüllt alle Anforderungen der Registrierkassensicherheitsverordnung (RKSV).
     """,
-    'images': ['icon.png'],
+    'images': ['icon.png', 'static/description/icon.png'],
     'author': 'MPI GmbH',
     'website': 'https://www.mpi-erp.at',
     'price': 290.00,
