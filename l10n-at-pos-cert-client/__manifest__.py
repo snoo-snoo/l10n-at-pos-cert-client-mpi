@@ -5,11 +5,21 @@
     'version': '18.0.1.0.0',
     'category': 'Point of Sale',
     'summary': 'RKSV-Modul für österreichische Registrierkassen',
-    'description': 'description.html',
+    'description': """
+        Dieses Modul implementiert die gesetzlichen Anforderungen für Registrierkassen in Österreich (RKSV).
+        
+        Funktionen:
+        - Digitale Signatur von Belegen
+        - Erstellung und Export von DEP-7 Dateien
+        - Integration mit dem Odoo Point of Sale
+        - Verwaltung von Zertifikaten und Schlüsseln
+        - Automatische Sicherung der Daten
+        
+        Das Modul erfüllt alle Anforderungen der Registrierkassensicherheitsverordnung (RKSV).
+    """,
     'images': ['icon.png'],
     'author': 'MPI GmbH',
     'website': 'https://www.mpi-erp.at',
-    'repository': 'ssh://git@github.com/snoo-snoo/mpi-l10n-at-pos-cert-client.git#18.0',
     'price': 290.00,
     'currency': 'EUR',
     'depends': [
