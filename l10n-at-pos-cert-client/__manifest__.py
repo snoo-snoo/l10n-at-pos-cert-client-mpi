@@ -20,7 +20,7 @@
     'images': ['icon.png', 'static/description/icon.png'],
     'author': 'MPI GmbH',
     'website': 'https://www.mpi-erp.at',
-    'price': 290.00,
+    'price': 0.00,
     'currency': 'EUR',
     'depends': [
         'point_of_sale',
